@@ -1,0 +1,91 @@
+//
+//  ZeitfensterTableViewController.m
+//  ArztTerminApp
+//
+//  Created by Simplice Tchoupkoua on 26.01.13.
+//  Copyright (c) 2013 Simplice. All rights reserved.
+//
+
+#import "ZeitfensterTableViewController.h"
+#import "JSMCoreDataHelper.h"
+#import "Constants.h"
+#import "Arzt.h"
+#import "Zeitfenster.h"
+
+@interface ZeitfensterTableViewController ()
+
+@property (nonatomic, strong) NSFetchedResultsController *zeitfensterFetchedResultsController;
+
+@end
+
+@implementation ZeitfensterTableViewController
+
+@synthesize zeitfensterFetchedResultsController = _zeitfensterFetchedResultsController;
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+ 
+    [JSMCoreDataHelper performFetchOnFetchedResultController:self.fetchedResultsController];
+}
+
+#pragma mark - must be overrite by the subclass
+-(NSFetchedResultsController *) fetchedResultsController {
+    if (self.zeitfensterFetchedResultsController != nil) {
+        return self.zeitfensterFetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:cEntityZeitfenster inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
+    fetchRequest.entity = entityDescription;
+    fetchRequest.fetchBatchSize = 64;
+    
+    NSSortDescriptor *sortVorname = [[NSSortDescriptor alloc] initWithKey:cEntityAttributeArztNachname ascending:YES];
+    NSArray *sortArray = [NSArray arrayWithObject:sortVorname];
+    
+    [fetchRequest setSortDescriptors:sortArray];
+    
+    self.zeitfensterFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[JSMCoreDataHelper managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    self.zeitfensterFetchedResultsController.delegate = self;
+    
+    return self.zeitfensterFetchedResultsController;
+}
+
+#pragma mark - Table view data source
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"ZeitfensterIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    Zeitfenster *zeitfenster = (Zeitfenster *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",zeitfenster.arzt.anrede, zeitfenster.arzt.nachname];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@h%@-%@h%@", zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute];
+        
+    return cell;
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return self.tableView.isEditing;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [[JSMCoreDataHelper managedObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
+}
+
+
+#pragma mark - barButtonItems
+
+-(void) barButtonItemAddPressed: (id) sender {
+    [self performSegueWithIdentifier:@"showAddZeitfenster" sender:self];
+}
+
+@end

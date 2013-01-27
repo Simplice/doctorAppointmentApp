@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AerzteTableViewController.h
 //  ArztTerminApp
 //
 //  Created by Simplice Tchoupkoua on 22.01.13.
@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSMTableViewController.h"
 
-@interface ViewController : UIViewController
+@interface AerzteTableViewController : JSMTableViewController
 
-
-- (IBAction)eingabeEntleeren:(id)sender;
 
 @end

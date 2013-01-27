@@ -18,6 +18,24 @@
 		F13CE3B216AF35A9003B6CB0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13CE3B116AF35A9003B6CB0 /* Default-568h@2x.png */; };
 		F13CE3B516AF35A9003B6CB0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13CE3B316AF35A9003B6CB0 /* MainStoryboard.storyboard */; };
 		F13CE3B816AF35A9003B6CB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3B716AF35A9003B6CB0 /* ViewController.m */; };
+		F13CE3C416AF516B003B6CB0 /* AerzteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3C316AF516B003B6CB0 /* AerzteTableViewController.m */; };
+		F13CE3C616B01573003B6CB0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13CE3C516B01573003B6CB0 /* CoreData.framework */; };
+		F13CE3CA16B01637003B6CB0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3C816B01637003B6CB0 /* DataModel.xcdatamodeld */; };
+		F13CE3E516B0556C003B6CB0 /* Arzt.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3E416B0556C003B6CB0 /* Arzt.m */; };
+		F13CE3E816B05C12003B6CB0 /* Termin.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3E716B05C12003B6CB0 /* Termin.m */; };
+		F13CE3EE16B05C46003B6CB0 /* Zeitfenster.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3ED16B05C46003B6CB0 /* Zeitfenster.m */; };
+		F13CE3F116B074D0003B6CB0 /* PatienteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3F016B074D0003B6CB0 /* PatienteTableViewController.m */; };
+		F13CE3F916B07AB1003B6CB0 /* AddArztViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3F816B07AB1003B6CB0 /* AddArztViewController.m */; };
+		F1A4DFC816B152B100EBAD4C /* JSMCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFC716B152B100EBAD4C /* JSMCoreDataHelper.m */; };
+		F1A4DFD216B1F72A00EBAD4C /* AddZeitfensterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFD116B1F72A00EBAD4C /* AddZeitfensterViewController.m */; };
+		F1A4DFD516B2CC2F00EBAD4C /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFD416B2CC2F00EBAD4C /* Validator.m */; };
+		F1A4DFDF16B336B600EBAD4C /* ApplicationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFDE16B336B600EBAD4C /* ApplicationHelper.m */; };
+		F1A4DFE216B3F31200EBAD4C /* ZeitfensterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFE116B3F31200EBAD4C /* ZeitfensterTableViewController.m */; };
+		F1A4DFE916B4094400EBAD4C /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFE816B4094400EBAD4C /* Patient.m */; };
+		F1A4DFEB16B414BB00EBAD4C /* 320-fond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A4DFEA16B414BB00EBAD4C /* 320-fond.jpg */; };
+		F1A4DFF616B4453300EBAD4C /* JSMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFF516B4453300EBAD4C /* JSMTableViewController.m */; };
+		F1A4DFFA16B4DA3100EBAD4C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFF916B4DA3100EBAD4C /* Constants.m */; };
+		F1D0611D16B07E6100F87283 /* AddPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D0611C16B07E6100F87283 /* AddPatientViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +55,39 @@
 		F13CE3B416AF35A9003B6CB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F13CE3B616AF35A9003B6CB0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F13CE3B716AF35A9003B6CB0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F13CE3C216AF516B003B6CB0 /* AerzteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AerzteTableViewController.h; sourceTree = "<group>"; };
+		F13CE3C316AF516B003B6CB0 /* AerzteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AerzteTableViewController.m; sourceTree = "<group>"; };
+		F13CE3C516B01573003B6CB0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F13CE3C916B01637003B6CB0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F13CE3E316B0556C003B6CB0 /* Arzt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arzt.h; sourceTree = "<group>"; };
+		F13CE3E416B0556C003B6CB0 /* Arzt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arzt.m; sourceTree = "<group>"; };
+		F13CE3E616B05C12003B6CB0 /* Termin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Termin.h; sourceTree = "<group>"; };
+		F13CE3E716B05C12003B6CB0 /* Termin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Termin.m; sourceTree = "<group>"; };
+		F13CE3EC16B05C45003B6CB0 /* Zeitfenster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zeitfenster.h; sourceTree = "<group>"; };
+		F13CE3ED16B05C46003B6CB0 /* Zeitfenster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zeitfenster.m; sourceTree = "<group>"; };
+		F13CE3EF16B074D0003B6CB0 /* PatienteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatienteTableViewController.h; sourceTree = "<group>"; };
+		F13CE3F016B074D0003B6CB0 /* PatienteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatienteTableViewController.m; sourceTree = "<group>"; };
+		F13CE3F716B07AB1003B6CB0 /* AddArztViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddArztViewController.h; sourceTree = "<group>"; };
+		F13CE3F816B07AB1003B6CB0 /* AddArztViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddArztViewController.m; sourceTree = "<group>"; };
+		F1A4DFC616B152B100EBAD4C /* JSMCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMCoreDataHelper.h; sourceTree = "<group>"; };
+		F1A4DFC716B152B100EBAD4C /* JSMCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMCoreDataHelper.m; sourceTree = "<group>"; };
+		F1A4DFD016B1F72A00EBAD4C /* AddZeitfensterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZeitfensterViewController.h; sourceTree = "<group>"; };
+		F1A4DFD116B1F72A00EBAD4C /* AddZeitfensterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddZeitfensterViewController.m; sourceTree = "<group>"; };
+		F1A4DFD316B2CC2F00EBAD4C /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
+		F1A4DFD416B2CC2F00EBAD4C /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
+		F1A4DFDD16B336B600EBAD4C /* ApplicationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationHelper.h; sourceTree = "<group>"; };
+		F1A4DFDE16B336B600EBAD4C /* ApplicationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationHelper.m; sourceTree = "<group>"; };
+		F1A4DFE016B3F31200EBAD4C /* ZeitfensterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeitfensterTableViewController.h; sourceTree = "<group>"; };
+		F1A4DFE116B3F31200EBAD4C /* ZeitfensterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeitfensterTableViewController.m; sourceTree = "<group>"; };
+		F1A4DFE716B4094400EBAD4C /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		F1A4DFE816B4094400EBAD4C /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		F1A4DFEA16B414BB00EBAD4C /* 320-fond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "320-fond.jpg"; sourceTree = "<group>"; };
+		F1A4DFF416B4453300EBAD4C /* JSMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMTableViewController.h; sourceTree = "<group>"; };
+		F1A4DFF516B4453300EBAD4C /* JSMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMTableViewController.m; sourceTree = "<group>"; };
+		F1A4DFF816B4DA3100EBAD4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F1A4DFF916B4DA3100EBAD4C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F1D0611B16B07E6100F87283 /* AddPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPatientViewController.h; sourceTree = "<group>"; };
+		F1D0611C16B07E6100F87283 /* AddPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13CE3C616B01573003B6CB0 /* CoreData.framework in Frameworks */,
 				F13CE39C16AF35A8003B6CB0 /* UIKit.framework in Frameworks */,
 				F13CE39E16AF35A8003B6CB0 /* Foundation.framework in Frameworks */,
 				F13CE3A016AF35A8003B6CB0 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +125,7 @@
 		F13CE39A16AF35A8003B6CB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F13CE3C516B01573003B6CB0 /* CoreData.framework */,
 				F13CE39B16AF35A8003B6CB0 /* UIKit.framework */,
 				F13CE39D16AF35A8003B6CB0 /* Foundation.framework */,
 				F13CE39F16AF35A8003B6CB0 /* CoreGraphics.framework */,
@@ -83,11 +136,18 @@
 		F13CE3A116AF35A8003B6CB0 /* ArztTerminApp */ = {
 			isa = PBXGroup;
 			children = (
+				F1A4DFF716B4DA0C00EBAD4C /* Constants */,
+				F1A4DFC516B12EFF00EBAD4C /* Utils */,
+				F1A4DFC316B12EF400EBAD4C /* Images */,
+				F1D0611916B07E3200F87283 /* Patiente */,
+				F13CE3F616B07A5F003B6CB0 /* Aerzte */,
+				F1A4DFCF16B1F69500EBAD4C /* Zeitfenster */,
 				F13CE3AA16AF35A9003B6CB0 /* AppDelegate.h */,
 				F13CE3AB16AF35A9003B6CB0 /* AppDelegate.m */,
 				F13CE3B316AF35A9003B6CB0 /* MainStoryboard.storyboard */,
 				F13CE3B616AF35A9003B6CB0 /* ViewController.h */,
 				F13CE3B716AF35A9003B6CB0 /* ViewController.m */,
+				F13CE3C716B015B9003B6CB0 /* Datamodel */,
 				F13CE3A216AF35A8003B6CB0 /* Supporting Files */,
 			);
 			path = ArztTerminApp;
@@ -105,6 +165,88 @@
 				F13CE3B116AF35A9003B6CB0 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F13CE3C716B015B9003B6CB0 /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				F13CE3C816B01637003B6CB0 /* DataModel.xcdatamodeld */,
+				F1A4DFE716B4094400EBAD4C /* Patient.h */,
+				F1A4DFE816B4094400EBAD4C /* Patient.m */,
+				F13CE3EC16B05C45003B6CB0 /* Zeitfenster.h */,
+				F13CE3ED16B05C46003B6CB0 /* Zeitfenster.m */,
+				F13CE3E616B05C12003B6CB0 /* Termin.h */,
+				F13CE3E716B05C12003B6CB0 /* Termin.m */,
+				F13CE3E316B0556C003B6CB0 /* Arzt.h */,
+				F13CE3E416B0556C003B6CB0 /* Arzt.m */,
+			);
+			name = Datamodel;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F13CE3F616B07A5F003B6CB0 /* Aerzte */ = {
+			isa = PBXGroup;
+			children = (
+				F13CE3C216AF516B003B6CB0 /* AerzteTableViewController.h */,
+				F13CE3C316AF516B003B6CB0 /* AerzteTableViewController.m */,
+				F13CE3F716B07AB1003B6CB0 /* AddArztViewController.h */,
+				F13CE3F816B07AB1003B6CB0 /* AddArztViewController.m */,
+			);
+			name = Aerzte;
+			sourceTree = "<group>";
+		};
+		F1A4DFC316B12EF400EBAD4C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F1A4DFEA16B414BB00EBAD4C /* 320-fond.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		F1A4DFC516B12EFF00EBAD4C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F1A4DFC616B152B100EBAD4C /* JSMCoreDataHelper.h */,
+				F1A4DFC716B152B100EBAD4C /* JSMCoreDataHelper.m */,
+				F1A4DFD316B2CC2F00EBAD4C /* Validator.h */,
+				F1A4DFD416B2CC2F00EBAD4C /* Validator.m */,
+				F1A4DFDD16B336B600EBAD4C /* ApplicationHelper.h */,
+				F1A4DFDE16B336B600EBAD4C /* ApplicationHelper.m */,
+				F1A4DFF416B4453300EBAD4C /* JSMTableViewController.h */,
+				F1A4DFF516B4453300EBAD4C /* JSMTableViewController.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F1A4DFCF16B1F69500EBAD4C /* Zeitfenster */ = {
+			isa = PBXGroup;
+			children = (
+				F1A4DFD016B1F72A00EBAD4C /* AddZeitfensterViewController.h */,
+				F1A4DFD116B1F72A00EBAD4C /* AddZeitfensterViewController.m */,
+				F1A4DFE016B3F31200EBAD4C /* ZeitfensterTableViewController.h */,
+				F1A4DFE116B3F31200EBAD4C /* ZeitfensterTableViewController.m */,
+			);
+			name = Zeitfenster;
+			sourceTree = "<group>";
+		};
+		F1A4DFF716B4DA0C00EBAD4C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F1A4DFF816B4DA3100EBAD4C /* Constants.h */,
+				F1A4DFF916B4DA3100EBAD4C /* Constants.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		F1D0611916B07E3200F87283 /* Patiente */ = {
+			isa = PBXGroup;
+			children = (
+				F13CE3EF16B074D0003B6CB0 /* PatienteTableViewController.h */,
+				F13CE3F016B074D0003B6CB0 /* PatienteTableViewController.m */,
+				F1D0611B16B07E6100F87283 /* AddPatientViewController.h */,
+				F1D0611C16B07E6100F87283 /* AddPatientViewController.m */,
+			);
+			name = Patiente;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +305,7 @@
 				F13CE3B016AF35A9003B6CB0 /* Default@2x.png in Resources */,
 				F13CE3B216AF35A9003B6CB0 /* Default-568h@2x.png in Resources */,
 				F13CE3B516AF35A9003B6CB0 /* MainStoryboard.storyboard in Resources */,
+				F1A4DFEB16B414BB00EBAD4C /* 320-fond.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +319,22 @@
 				F13CE3A816AF35A8003B6CB0 /* main.m in Sources */,
 				F13CE3AC16AF35A9003B6CB0 /* AppDelegate.m in Sources */,
 				F13CE3B816AF35A9003B6CB0 /* ViewController.m in Sources */,
+				F13CE3C416AF516B003B6CB0 /* AerzteTableViewController.m in Sources */,
+				F13CE3CA16B01637003B6CB0 /* DataModel.xcdatamodeld in Sources */,
+				F13CE3E516B0556C003B6CB0 /* Arzt.m in Sources */,
+				F13CE3E816B05C12003B6CB0 /* Termin.m in Sources */,
+				F13CE3EE16B05C46003B6CB0 /* Zeitfenster.m in Sources */,
+				F13CE3F116B074D0003B6CB0 /* PatienteTableViewController.m in Sources */,
+				F13CE3F916B07AB1003B6CB0 /* AddArztViewController.m in Sources */,
+				F1D0611D16B07E6100F87283 /* AddPatientViewController.m in Sources */,
+				F1A4DFC816B152B100EBAD4C /* JSMCoreDataHelper.m in Sources */,
+				F1A4DFD216B1F72A00EBAD4C /* AddZeitfensterViewController.m in Sources */,
+				F1A4DFD516B2CC2F00EBAD4C /* Validator.m in Sources */,
+				F1A4DFDF16B336B600EBAD4C /* ApplicationHelper.m in Sources */,
+				F1A4DFE216B3F31200EBAD4C /* ZeitfensterTableViewController.m in Sources */,
+				F1A4DFE916B4094400EBAD4C /* Patient.m in Sources */,
+				F1A4DFF616B4453300EBAD4C /* JSMTableViewController.m in Sources */,
+				F1A4DFFA16B4DA3100EBAD4C /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +451,22 @@
 				F13CE3BD16AF35A9003B6CB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F13CE3C816B01637003B6CB0 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F13CE3C916B01637003B6CB0 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = F13CE3C916B01637003B6CB0 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F13CE38E16AF35A8003B6CB0 /* Project object */;
 }

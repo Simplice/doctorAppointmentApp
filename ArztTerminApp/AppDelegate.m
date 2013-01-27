@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "JSMCoreDataHelper.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [JSMCoreDataHelper managedObjectContext];
+    
     return YES;
 }
 							
