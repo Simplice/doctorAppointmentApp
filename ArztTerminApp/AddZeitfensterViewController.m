@@ -104,7 +104,7 @@
     
     //check and load Arzt if he exists
     if(![self ladenArztMitEingegebenemNamen:self.ganzerName.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte überprüfen Sie den Namen des Arztes."];
+        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte überprüfen Sie die eingegebenen Daten."];
         return;
     }
     
@@ -133,7 +133,7 @@
         
         // then use the ManagedObjectContext to search for the Arzt
         NSArray *result = [JSMCoreDataHelper fetchEntitiesForClass:[Arzt class] withPredicate:predicate sortedByEntityProperty:nil  inManagedObjectContext:managedContext];
-        if (result) {
+        if (result && [result count] > 0) {
             Arzt *gefundenerArzt = result[0]; // hier geben wir zurück der erste Arzt in der Liste
             self.gefundenerArzt = gefundenerArzt;
             return YES; // Arzt wurde gefunden.

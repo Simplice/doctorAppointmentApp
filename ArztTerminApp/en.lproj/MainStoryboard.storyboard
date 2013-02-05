@@ -43,7 +43,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-r2-Wwr">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Zeitfenster einfügen">
+                                <state key="normal" title="Zeitfenster anzeigen">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -54,6 +54,19 @@
                                     <segue destination="rK3-ae-SXZ" kind="push" identifier="showAlleZeitfenster" id="FJQ-UF-1DD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-vD-iF6">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Termin erfassen">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cHX-ht-yZe" kind="push" identifier="showTermin" id="LYu-l2-ZmV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98913043479999996" green="0.98913043479999996" blue="0.98913043479999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -61,10 +74,14 @@
                             <constraint firstItem="reg-qO-P8V" firstAttribute="leading" secondItem="Mdf-BT-9WJ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="8jN-X7-QnL"/>
                             <constraint firstItem="Ug1-r2-Wwr" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="BNH-bS-ZIy"/>
                             <constraint firstItem="Mdf-BT-9WJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="C9F-zx-jh8"/>
-                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="trailing" secondItem="Mdf-BT-9WJ" secondAttribute="trailing" type="default" id="QTp-XK-9xA"/>
+                            <constraint firstItem="Mdf-BT-9WJ" firstAttribute="baseline" secondItem="reg-qO-P8V" secondAttribute="baseline" type="default" id="TyK-MU-bUX"/>
+                            <constraint firstItem="fWD-vD-iF6" firstAttribute="leading" secondItem="reg-qO-P8V" secondAttribute="leading" type="default" id="YNf-K8-ndC"/>
+                            <constraint firstItem="fWD-vD-iF6" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dj1-TC-zp3"/>
+                            <constraint firstItem="fWD-vD-iF6" firstAttribute="baseline" secondItem="Ug1-r2-Wwr" secondAttribute="baseline" type="default" id="e4c-By-AFx"/>
                             <constraint firstItem="reg-qO-P8V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="iPG-eG-1pg"/>
                             <constraint firstItem="Mdf-BT-9WJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="jGg-64-1Kk"/>
                             <constraint firstItem="Ug1-r2-Wwr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="88" id="kJX-mO-5hX"/>
+                            <constraint firstItem="fWD-vD-iF6" firstAttribute="leading" secondItem="Ug1-r2-Wwr" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mnX-05-9WX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="3SY-xe-C9j"/>
@@ -116,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mZ-f1-oMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275" y="-417"/>
+            <point key="canvasLocation" x="1275" y="-919"/>
         </scene>
         <!--Add Arzt View Controller - Neuer Arzt-->
         <scene sceneID="IMC-qs-qz9">
@@ -189,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFN-ZT-Gdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-417"/>
+            <point key="canvasLocation" x="1686" y="-919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cvg-3V-5rU">
@@ -364,7 +381,145 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwf-bg-C9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="963"/>
+            <point key="canvasLocation" x="1696" y="451"/>
+        </scene>
+        <!--Add Termin View Controller - Termin erfassen-->
+        <scene sceneID="3gZ-iW-Lxl">
+            <objects>
+                <viewController id="cHX-ht-yZe" customClass="AddTerminViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uOU-S9-Rji">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Datum:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drS-LF-a9e">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="rVE-7d-82i"/>
+                                    <constraint firstAttribute="height" constant="21" id="zei-vl-Nu4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Patient (Nachname, Vorname)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-yU-hVh">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8Rs-FE-dEM"/>
+                                    <constraint firstAttribute="width" constant="230" id="f13-EI-Y1K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zeitfenster" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-uI-5B9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FP0-ru-4Md"/>
+                                    <constraint firstAttribute="width" constant="81" id="nTF-X3-QKt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TT.DD.YYYY" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nW6-DN-cwU">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="removeKeybord:" destination="cHX-ht-yZe" eventType="editingDidEndOnExit" id="Nn0-HZ-veb"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-eP-KJM">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                <connections>
+                                    <action selector="removeKeybord:" destination="cHX-ht-yZe" eventType="editingDidEndOnExit" id="iQM-x7-S8g"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Byl-8e-fZl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="DNX-RL-z2Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="removeKeybord:" destination="cHX-ht-yZe" eventType="editingDidEndOnExit" id="hz0-9X-AdM"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FTU-lN-sJx">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="0On-Su-WwZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="removeKeybord:" destination="cHX-ht-yZe" eventType="editingDidEndOnExit" id="bDM-BT-sFh"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="End:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sa-zx-2Y2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="69s-Op-YmP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Start:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfg-x0-XQT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Mtb-8F-3sA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O10-re-rTx">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="speichern">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveTermin:" destination="cHX-ht-yZe" eventType="touchUpInside" id="7Tu-gM-GlY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gdM-eP-KJM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5Cc-lX-xJW"/>
+                            <constraint firstItem="8VO-uI-5B9" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5UA-rC-Oh1"/>
+                            <constraint firstAttribute="trailing" secondItem="O10-re-rTx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8rd-xp-jJd"/>
+                            <constraint firstItem="nW6-DN-cwU" firstAttribute="leading" secondItem="drS-LF-a9e" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BFD-wU-Z0g"/>
+                            <constraint firstItem="gdM-eP-KJM" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="76" id="HNH-Eb-H9C"/>
+                            <constraint firstItem="xfg-x0-XQT" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HTl-Lg-ipI"/>
+                            <constraint firstItem="3sa-zx-2Y2" firstAttribute="baseline" secondItem="FTU-lN-sJx" secondAttribute="baseline" type="default" id="Oab-5B-8Ct"/>
+                            <constraint firstItem="drS-LF-a9e" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Oyb-5z-L2g"/>
+                            <constraint firstItem="Byl-8e-fZl" firstAttribute="baseline" secondItem="xfg-x0-XQT" secondAttribute="baseline" type="default" id="RC9-Hc-78M"/>
+                            <constraint firstAttribute="trailing" secondItem="FTU-lN-sJx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="WAw-Kc-E3c"/>
+                            <constraint firstItem="gdM-eP-KJM" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WsZ-S3-MMN"/>
+                            <constraint firstItem="fiG-yU-hVh" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cIH-JN-s9S"/>
+                            <constraint firstItem="3sa-zx-2Y2" firstAttribute="top" secondItem="xfg-x0-XQT" secondAttribute="top" type="default" id="dSH-hl-cH8"/>
+                            <constraint firstItem="8VO-uI-5B9" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="112" id="gU0-JF-JHu"/>
+                            <constraint firstItem="Byl-8e-fZl" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="130" id="hgp-8l-EEP"/>
+                            <constraint firstItem="O10-re-rTx" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="175" id="i3J-Lh-xBt"/>
+                            <constraint firstAttribute="trailing" secondItem="3sa-zx-2Y2" secondAttribute="trailing" constant="112" id="iyi-w4-zXw"/>
+                            <constraint firstItem="fiG-yU-hVh" firstAttribute="top" secondItem="uOU-S9-Rji" secondAttribute="top" constant="57" id="kmo-eQ-Aa5"/>
+                            <constraint firstItem="Byl-8e-fZl" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="70" id="mO3-kN-hY4"/>
+                            <constraint firstItem="drS-LF-a9e" firstAttribute="leading" secondItem="uOU-S9-Rji" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="s6I-oa-510"/>
+                            <constraint firstItem="nW6-DN-cwU" firstAttribute="baseline" secondItem="drS-LF-a9e" secondAttribute="baseline" type="default" id="vah-77-E2m"/>
+                            <constraint firstItem="3sa-zx-2Y2" firstAttribute="baseline" secondItem="Byl-8e-fZl" secondAttribute="baseline" type="default" id="zdK-7g-yoa"/>
+                            <constraint firstAttribute="trailing" secondItem="nW6-DN-cwU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zhq-HP-z19"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Termin erfassen" id="kq8-u2-381"/>
+                    <connections>
+                        <outlet property="terminBegin" destination="Byl-8e-fZl" id="8A6-QR-zCV"/>
+                        <outlet property="terminDatum" destination="nW6-DN-cwU" id="vfp-3H-1xH"/>
+                        <outlet property="terminEnd" destination="FTU-lN-sJx" id="uZF-Ag-J7B"/>
+                        <outlet property="vollerNamePatient" destination="gdM-eP-KJM" id="GJE-4M-lw3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUn-Nk-66a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="630"/>
         </scene>
         <!--Zeitfenster Table View Controller - Zeitfenster-->
         <scene sceneID="OFd-Mc-mrg">
@@ -409,7 +564,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBt-ne-rl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797" y="700"/>
+            <point key="canvasLocation" x="1275" y="451"/>
         </scene>
         <!--Patiente Table View Controller - Patiente-->
         <scene sceneID="wLR-HP-i5v">
@@ -454,7 +609,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3D-Hl-iZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275" y="285"/>
+            <point key="canvasLocation" x="1275" y="-235"/>
         </scene>
         <!--Add Patient View Controller - Neuer Patient-->
         <scene sceneID="XTW-Ra-4g9">
@@ -523,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRf-BF-nNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="285"/>
+            <point key="canvasLocation" x="1696" y="-235"/>
         </scene>
     </scenes>
     <classes>
@@ -547,10 +702,20 @@
                 <relationship kind="outlet" name="vorname" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="AddTerminViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddTerminViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="removeKeybord:"/>
+                <relationship kind="action" name="saveTermin:"/>
+                <relationship kind="outlet" name="terminBegin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="terminDatum" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="terminEnd" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="vollerNamePatient" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="AddZeitfensterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddZeitfensterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="removeKeybord:"/>
                 <relationship kind="action" name="saveZeitfenster:"/>
                 <relationship kind="action" name="startMethodToCheckMaxLength:"/>
                 <relationship kind="action" name="stopMethodToCheckMaxLength:"/>
@@ -561,13 +726,16 @@
                 <relationship kind="outlet" name="ganzerName" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="AerzteTableViewController" superclassName="UITableViewController">
+        <class className="AerzteTableViewController" superclassName="JSMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AerzteTableViewController.h"/>
+        </class>
+        <class className="JSMTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JSMTableViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="PatienteTableViewController" superclassName="UITableViewController">
+        <class className="PatienteTableViewController" superclassName="JSMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatienteTableViewController.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
@@ -576,7 +744,7 @@
                 <relationship kind="action" name="eingabeEntleeren:"/>
             </relationships>
         </class>
-        <class className="ZeitfensterTableViewController" superclassName="UITableViewController">
+        <class className="ZeitfensterTableViewController" superclassName="JSMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZeitfensterTableViewController.h"/>
         </class>
     </classes>

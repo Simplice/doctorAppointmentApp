@@ -59,4 +59,20 @@
     return NO;
 }
 
++(BOOL) checkForValidDate: (NSString*) dateString {
+    if (dateString.length == 0) {
+        return NO;
+    }else {
+        NSArray *items = [dateString componentsSeparatedByString:@"."];
+        if ([items count] != 3) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
++(BOOL) checkIfDateInThePass: (NSString*) dateString {
+    return YES;
+}
+
 @end

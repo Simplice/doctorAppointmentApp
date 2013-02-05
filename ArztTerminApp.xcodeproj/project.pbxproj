@@ -35,6 +35,7 @@
 		F1A4DFEB16B414BB00EBAD4C /* 320-fond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A4DFEA16B414BB00EBAD4C /* 320-fond.jpg */; };
 		F1A4DFF616B4453300EBAD4C /* JSMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFF516B4453300EBAD4C /* JSMTableViewController.m */; };
 		F1A4DFFA16B4DA3100EBAD4C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFF916B4DA3100EBAD4C /* Constants.m */; };
+		F1A4E00616B5CBCC00EBAD4C /* AddTerminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4E00516B5CBCC00EBAD4C /* AddTerminViewController.m */; };
 		F1D0611D16B07E6100F87283 /* AddPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D0611C16B07E6100F87283 /* AddPatientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		F1A4DFF516B4453300EBAD4C /* JSMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMTableViewController.m; sourceTree = "<group>"; };
 		F1A4DFF816B4DA3100EBAD4C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F1A4DFF916B4DA3100EBAD4C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F1A4E00416B5CBCC00EBAD4C /* AddTerminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTerminViewController.h; sourceTree = "<group>"; };
+		F1A4E00516B5CBCC00EBAD4C /* AddTerminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTerminViewController.m; sourceTree = "<group>"; };
 		F1D0611B16B07E6100F87283 /* AddPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPatientViewController.h; sourceTree = "<group>"; };
 		F1D0611C16B07E6100F87283 /* AddPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPatientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +145,7 @@
 				F1D0611916B07E3200F87283 /* Patiente */,
 				F13CE3F616B07A5F003B6CB0 /* Aerzte */,
 				F1A4DFCF16B1F69500EBAD4C /* Zeitfenster */,
+				F1A4E00316B5CB6100EBAD4C /* Termin */,
 				F13CE3AA16AF35A9003B6CB0 /* AppDelegate.h */,
 				F13CE3AB16AF35A9003B6CB0 /* AppDelegate.m */,
 				F13CE3B316AF35A9003B6CB0 /* MainStoryboard.storyboard */,
@@ -236,6 +240,15 @@
 				F1A4DFF916B4DA3100EBAD4C /* Constants.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		F1A4E00316B5CB6100EBAD4C /* Termin */ = {
+			isa = PBXGroup;
+			children = (
+				F1A4E00416B5CBCC00EBAD4C /* AddTerminViewController.h */,
+				F1A4E00516B5CBCC00EBAD4C /* AddTerminViewController.m */,
+			);
+			name = Termin;
 			sourceTree = "<group>";
 		};
 		F1D0611916B07E3200F87283 /* Patiente */ = {
@@ -335,6 +348,7 @@
 				F1A4DFE916B4094400EBAD4C /* Patient.m in Sources */,
 				F1A4DFF616B4453300EBAD4C /* JSMTableViewController.m in Sources */,
 				F1A4DFFA16B4DA3100EBAD4C /* Constants.m in Sources */,
+				F1A4E00616B5CBCC00EBAD4C /* AddTerminViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

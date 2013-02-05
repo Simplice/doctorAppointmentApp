@@ -22,4 +22,8 @@
 
 +(BOOL) checkForNotEmptyPersonDateTextFields: (NSString*) anrede lastname:(NSString *) lastname firstname:(NSString *) vorname;
 
++(BOOL) checkForValidDate: (NSString*) dateString;
+
++(BOOL) checkIfDateInThePass: (NSString*) dateString;
+
 @end

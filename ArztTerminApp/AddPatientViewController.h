@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class Patient;
+
 @interface AddPatientViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *anrede;
 @property (strong, nonatomic) IBOutlet UITextField *nachname;
 @property (strong, nonatomic) IBOutlet UITextField *vorname;
+
+@property (nonatomic, strong) Patient *selectedPatient;
 
 - (IBAction)removeKeybord:(id)sender;
 

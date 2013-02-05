@@ -19,9 +19,9 @@
 @implementation AddArztViewController
 
 @synthesize anrede = _anrede, vorname = _vorname, nachname = _nachname;
+@synthesize selectedArzt = _selectedArzt;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -31,10 +31,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
     // ajouter une image au backgroungColor
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
+    if (self.selectedArzt != nil) {
+        self.anrede.text = self.selectedArzt.anrede;
+        self.vorname.text = self.selectedArzt.vorname;
+        self.nachname.text = self.selectedArzt.nachname;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,11 +56,17 @@
         [ApplicationHelper fehlermeldungAnzeigen:@"Alle Eingabefelder sind pflicht."];
         return;
     }
-    
-    Arzt *arzt = [JSMCoreDataHelper insertManagedObjectOfClass:[Arzt class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
-    arzt.anrede = self.anrede.text;
-    arzt.vorname = self.vorname.text;
-    arzt.nachname = self.nachname.text;
+    // if the object arzt is nil, then a new arzt object will be created and persit
+    if (self.selectedArzt == nil) {
+        Arzt *arzt = [JSMCoreDataHelper insertManagedObjectOfClass:[Arzt class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
+        arzt.anrede = self.anrede.text;
+        arzt.vorname = self.vorname.text;
+        arzt.nachname = self.nachname.text;
+    }else {//the existing arzt object will be merged
+        self.selectedArzt.anrede = self.anrede.text;
+        self.selectedArzt.vorname = self.vorname.text;
+        self.selectedArzt.nachname = self.nachname.text;
+    }
     
     [JSMCoreDataHelper saveManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     

@@ -19,6 +19,7 @@
 @implementation AddPatientViewController
 
 @synthesize anrede = _anrede, vorname = _vorname, nachname = _nachname;
+@synthesize selectedPatient = _selectedPatient;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,10 +31,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    // ajouter une image au backgroungColor
+	// ajouter une image au backgroungColor
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
+    
+    if (self.selectedPatient != nil) {
+        self.anrede.text = self.selectedPatient.anrede;
+        self.vorname.text = self.selectedPatient.vorname;
+        self.nachname.text = self.selectedPatient.nachname;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,11 +57,17 @@
         [ApplicationHelper fehlermeldungAnzeigen:@"Alle Eingabefelder sind pflicht."];
         return;
     }
-
-    Patient *patient = [JSMCoreDataHelper insertManagedObjectOfClass:[Patient class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
-    patient.anrede = self.anrede.text;
-    patient.vorname = self.vorname.text;
-    patient.nachname = self.nachname.text;
+    
+    if(self.selectedPatient == nil) { // Persist new entity object
+        Patient *patient = [JSMCoreDataHelper insertManagedObjectOfClass:[Patient class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
+        patient.anrede = self.anrede.text;
+        patient.vorname = self.vorname.text;
+        patient.nachname = self.nachname.text;
+    }else { // merged existing entity object
+        self.selectedPatient.anrede = self.anrede.text;
+        self.selectedPatient.vorname = self.vorname.text;
+        self.selectedPatient.nachname = self.nachname.text;
+    }
     
     [JSMCoreDataHelper saveManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     

@@ -82,9 +82,15 @@
     }   
 }
 
+// This method is used to edit the arzt entity
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showAddArzt" sender:self];
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showAddArzt"]) {
-        [segue destinationViewController];
+        AddArztViewController *addArztViewController = [segue destinationViewController];
+        addArztViewController.selectedArzt = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     }
 }
 

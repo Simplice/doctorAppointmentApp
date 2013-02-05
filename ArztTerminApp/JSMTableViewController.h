@@ -11,6 +11,7 @@
 
 @interface JSMTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+// die Methode impelementieren
 -(NSFetchedResultsController *) fetchedResultsController;
 
 @end

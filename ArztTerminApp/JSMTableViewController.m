@@ -77,19 +77,6 @@ barButtonItemDone = _barButtonItemDone, barButtonItemEdit = _barButtonItemEdit, 
     return [[self.fetchedResultsController.sections objectAtIndex:section] numberOfObjects];
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
 #pragma mark - must be overrite by the subclass
 -(NSFetchedResultsController *) fetchedResultsController {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Die methode %@ von der Vater-Klasse muss überschrieben werden", NSStringFromSelector(_cmd)] userInfo:nil];

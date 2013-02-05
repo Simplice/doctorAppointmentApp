@@ -7,6 +7,7 @@
 //
 
 #import "PatienteTableViewController.h"
+#import "AddPatientViewController.h"
 #import "JSMCoreDataHelper.h"
 #import "Constants.h"
 #import "Patient.h"
@@ -80,10 +81,16 @@
     }
 }
 
+#pragma mark - Table view delegate
+// This method is used to edit the arzt entity
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showAddPatient" sender:self];
+}
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showAddPatient"]) {
-        [segue destinationViewController];
+        AddPatientViewController *addPatientViewController = [segue destinationViewController];
+        addPatientViewController.selectedPatient = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     }
 }
 
