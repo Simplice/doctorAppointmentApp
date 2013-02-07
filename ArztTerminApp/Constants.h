@@ -16,5 +16,10 @@ extern NSString * const cEntityZeitfenster;
 extern NSString * const cEntityAttributeVorname;  //String für "vorname"
 extern NSString * const cEntityAttributeNachname; //String für "nachname"
 extern NSString * const cEntityAttributeArztNachname;
+extern NSString * const cEntityAttributePatientNachname;
+extern NSString * const cEntityAttributeTerminDatum;
 
 extern NSString * const cDatabaseFilename; // String für Datenbank
+
+extern NSString * const cUsername; // String für username
+extern NSString * const cpasswort; // String für passwort

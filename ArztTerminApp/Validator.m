@@ -59,20 +59,25 @@
     return NO;
 }
 
-+(BOOL) checkForValidDate: (NSString*) dateString {
-    if (dateString.length == 0) {
-        return NO;
-    }else {
-        NSArray *items = [dateString componentsSeparatedByString:@"."];
-        if ([items count] != 3) {
-            return NO;
-        }
++(BOOL) checkIfDateInThePassWithDay: (NSString*) day andWithMonth: (NSString*) month andWithYear: (NSString*) year {
+    // using the objet NSDateComponents and NSCalendar
+    NSDateFormatter *dformat = [[NSDateFormatter alloc]init]; //
+    [dformat setDateFormat:@"yyyy-MM-dd"];
+    //[dformat setDateStyle:NSDateFormatterMediumStyle];
+    NSDateComponents *nsDateComp = [[NSDateComponents alloc] init];
+    [nsDateComp setYear:[year intValue]];
+    [nsDateComp setMonth:[month intValue]];
+    [nsDateComp setDay:[day intValue]];
+    // using stringFromDate and dateFromString
+    NSDate *eingegebenesDatum = [[NSCalendar currentCalendar] dateFromComponents:nsDateComp];
+    NSDate *heutigesDatum = [NSDate date];
+    
+    NSComparisonResult result = [heutigesDatum compare:eingegebenesDatum];
+    if (result == NSOrderedDescending) {
+        return YES; // Das Datum liegt in der Vergangenheit
     }
-    return YES;
-}
-
-+(BOOL) checkIfDateInThePass: (NSString*) dateString {
-    return YES;
+    
+    return NO;
 }
 
 @end

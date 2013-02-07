@@ -12,4 +12,8 @@
 
 +(void) fehlermeldungAnzeigen:(NSString*) message;
 
++(NSDate *) createDateComponentWithDay: (NSString*) day andWithMonth: (NSString*) month andWithYear: (NSString*) year;
+
++(NSArray *) extrahiereDayMonthYearFromDate: (NSDate*) date;
+
 @end

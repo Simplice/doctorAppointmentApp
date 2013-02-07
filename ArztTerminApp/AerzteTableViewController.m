@@ -22,9 +22,9 @@
 
 @synthesize arztFetchedResultsController = _arztFetchedResultsController;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [JSMCoreDataHelper performFetchOnFetchedResultController:self.fetchedResultsController];
 }
 
@@ -37,6 +37,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass(Arzt.class) inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     fetchRequest.entity = entityDescription;
+    fetchRequest.predicate = self.searchFetchPredicate; // Use by the searcbar
     fetchRequest.fetchBatchSize = 64;
 
     NSSortDescriptor *sortVorname = [[NSSortDescriptor alloc] initWithKey:cEntityAttributeVorname ascending:YES];
@@ -44,7 +45,8 @@
     
     [fetchRequest setSortDescriptors:sortArray];
     
-    self.arztFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[JSMCoreDataHelper managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    self.arztFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                            managedObjectContext:[JSMCoreDataHelper managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
     self.arztFetchedResultsController.delegate = self;
     
     return self.arztFetchedResultsController;
@@ -98,6 +100,19 @@
 
 -(void) barButtonItemAddPressed: (id) sender {
     [self performSegueWithIdentifier:@"showAddArzt" sender:self];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [super searchBar:searchBar textDidChange:searchText];
+    if (searchText.length > 0) {
+        NSPredicate *filterPredicate = [JSMCoreDataHelper filterPredicateForEntityAttribue:cEntityAttributeNachname withSearchText:searchText];
+        self.searchFetchPredicate = filterPredicate;
+    } else {
+        self.searchFetchPredicate = nil;
+    }
+    self.arztFetchedResultsController = nil;
+    [JSMCoreDataHelper performFetchOnFetchedResultController:self.fetchedResultsController];
+    [self.tableView reloadData];
 }
 
 

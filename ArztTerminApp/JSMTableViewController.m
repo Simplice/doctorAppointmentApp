@@ -18,12 +18,15 @@
 @property (nonatomic, strong) UIBarButtonItem *barButtonItemSearch;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
+
 @end
 
 @implementation JSMTableViewController
 
 @synthesize barButtonItemAdd = _barButtonItemAdd, barButtonItemCancel = _barButtonItemDelete, searchBar = _searchBar,
 barButtonItemDone = _barButtonItemDone, barButtonItemEdit = _barButtonItemEdit, barButtonItemSearch= _barButtonItemSearch;
+
+@synthesize searchFetchPredicate = _searchFetchPredicate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -98,9 +101,11 @@ barButtonItemDone = _barButtonItemDone, barButtonItemEdit = _barButtonItemEdit, 
         self.tableView.tableHeaderView = self.searchBar;
         [self.tableView setContentOffset:CGPointMake(0, self.searchBar.frame.size.height) animated:NO];
         [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+        [self.searchBar setPlaceholder:@"Suche nach Nachname"];
     } else {
         self.searchBar.text = nil;
-        //       [self searchBar:self.searchBar textDidChange:nil];
+        [self searchBar:self.searchBar textDidChange:nil];
         if (self.tableView.contentOffset.y <= self.tableView.tableHeaderView.frame.size.height) { //fi tableheaderview sichtbar ist
             [self.tableView setContentOffset:CGPointMake(0, self.searchBar.frame.size.height) animated:YES];
             
@@ -119,6 +124,10 @@ barButtonItemDone = _barButtonItemDone, barButtonItemEdit = _barButtonItemEdit, 
 }
 
 -(void) barButtonItemEditPressed: (id) sender {
+    // prüfe ob Tastatur für den SearcBar eingeblenden ist, wenn schon dann ausblenden
+    if (self.searchBar.isFirstResponder) {
+        [self.searchBar resignFirstResponder];
+    }
     //Show toolbar
     [self.navigationController setToolbarHidden:NO animated:YES];
     [self.tableView setEditing:YES];
@@ -205,6 +214,23 @@ barButtonItemDone = _barButtonItemDone, barButtonItemEdit = _barButtonItemEdit, 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
+}
+
+#pragma mark - UISearchBar-Delegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    // Prüfe ob suchtext eingegeben wurde
+    if (searchText.length > 0) {
+        self.barButtonItemSearch.tintColor = [UIColor orangeColor];
+    } else {
+        self.barButtonItemSearch.tintColor = nil;
+    }
+}
+
+#pragma mark - UIScrollView-Delegate
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.searchBar.isFirstResponder) {
+        [self.searchBar resignFirstResponder]; // beim Starten der Scroller will die Tastatur ausgeblendet
+    }
 }
 
 @end

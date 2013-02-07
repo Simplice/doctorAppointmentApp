@@ -10,7 +10,7 @@
 
 @class Arzt;
 
-@interface AddArztViewController : UIViewController
+@interface AddArztViewController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *anrede;
 @property (strong, nonatomic) IBOutlet UITextField *nachname;

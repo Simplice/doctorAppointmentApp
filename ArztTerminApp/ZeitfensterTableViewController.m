@@ -38,6 +38,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:cEntityZeitfenster inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     fetchRequest.entity = entityDescription;
+    fetchRequest.predicate = self.searchFetchPredicate; // Use by the searcbar
     fetchRequest.fetchBatchSize = 64;
     
     NSSortDescriptor *sortVorname = [[NSSortDescriptor alloc] initWithKey:cEntityAttributeArztNachname ascending:YES];
@@ -83,9 +84,22 @@
 
 
 #pragma mark - barButtonItems
-
 -(void) barButtonItemAddPressed: (id) sender {
     [self performSegueWithIdentifier:@"showAddZeitfenster" sender:self];
+}
+
+#pragma mark - SearchBarDelegate
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [super searchBar:searchBar textDidChange:searchText];
+    if (searchText.length > 0) {
+        NSPredicate *filterPredicate = [JSMCoreDataHelper filterPredicateForEntityAttribue:cEntityAttributeArztNachname withSearchText:searchText];
+        self.searchFetchPredicate = filterPredicate;
+    } else {
+        self.searchFetchPredicate = nil;
+    }
+    self.zeitfensterFetchedResultsController = nil;
+    [JSMCoreDataHelper performFetchOnFetchedResultController:self.fetchedResultsController];
+    [self.tableView reloadData];
 }
 
 @end

@@ -38,6 +38,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:cEntityPatient inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     fetchRequest.entity = entityDescription;
+    fetchRequest.predicate = self.searchFetchPredicate; // Use by the searcbar
     fetchRequest.fetchBatchSize = 64;
     
     NSSortDescriptor *sortVorname = [[NSSortDescriptor alloc] initWithKey:cEntityAttributeVorname ascending:YES];
@@ -98,6 +99,19 @@
 
 -(void) barButtonItemAddPressed: (id) sender {
     [self performSegueWithIdentifier:@"showAddPatient" sender:self];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [super searchBar:searchBar textDidChange:searchText];
+    if (searchText.length > 0) {
+        NSPredicate *filterPredicate = [JSMCoreDataHelper filterPredicateForEntityAttribue:cEntityAttributeNachname withSearchText:searchText];
+        self.searchFetchPredicate = filterPredicate;
+    } else {
+        self.searchFetchPredicate = nil;
+    }
+    self.patientFetchedResultsController = nil;
+    [JSMCoreDataHelper performFetchOnFetchedResultController:self.fetchedResultsController];
+    [self.tableView reloadData];
 }
 
 @end

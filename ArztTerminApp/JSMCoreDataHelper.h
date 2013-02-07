@@ -23,4 +23,6 @@
 
 +(BOOL) performFetchOnFetchedResultController: (NSFetchedResultsController *) fetchedResultsController;
 
++(NSPredicate*) filterPredicateForEntityAttribue: (NSString*) entityAttribute withSearchText: (NSString*) searchText;
+
 @end

@@ -22,8 +22,6 @@
 
 +(BOOL) checkForNotEmptyPersonDateTextFields: (NSString*) anrede lastname:(NSString *) lastname firstname:(NSString *) vorname;
 
-+(BOOL) checkForValidDate: (NSString*) dateString;
-
-+(BOOL) checkIfDateInThePass: (NSString*) dateString;
++(BOOL) checkIfDateInThePassWithDay: (NSString*) day andWithMonth: (NSString*) month andWithYear: (NSString*) year;
 
 @end

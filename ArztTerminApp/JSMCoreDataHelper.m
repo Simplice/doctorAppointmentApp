@@ -88,7 +88,6 @@
     return items;
 }
 
-
 +(BOOL) performFetchOnFetchedResultController: (NSFetchedResultsController *) fetchedResultsController {
     NSError *error;
     if(![fetchedResultsController performFetch:&error]) {
@@ -96,6 +95,10 @@
         return NO;
     }
     return YES;
+}
+
++(NSPredicate*) filterPredicateForEntityAttribue: (NSString*) entityAttribute withSearchText: (NSString*) searchText {
+    return [NSPredicate predicateWithFormat:@"%K contains[c] %@", entityAttribute, searchText];
 }
 
 

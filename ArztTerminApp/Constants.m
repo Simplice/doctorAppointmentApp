@@ -16,5 +16,10 @@ NSString * const cEntityZeitfenster = @"Zeitfenster";
 NSString * const cEntityAttributeVorname = @"vorname";  //String für "vorname"
 NSString * const cEntityAttributeNachname = @"nachname"; //String für "nachname"
 NSString * const cEntityAttributeArztNachname = @"arzt.nachname"; //String für "nachname"
+NSString * const cEntityAttributePatientNachname = @"patient.nachname";
+NSString * const cEntityAttributeTerminDatum = @"datum"; // datum
 
 NSString * const cDatabaseFilename = @"database.sqlite";
+
+NSString * const cUsername = @"stc";
+NSString * const cpasswort = @"stc";
