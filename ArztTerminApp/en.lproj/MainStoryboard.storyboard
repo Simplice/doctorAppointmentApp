@@ -12,19 +12,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-BT-9WJ">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="Alle Ärzte anzeigen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="syU-f4-uyD" kind="push" identifier="showAlleAerzte" id="fel-0h-YBU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reg-qO-P8V">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="n31-Nj-S9A"/>
@@ -42,6 +29,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-r2-Wwr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="WoX-sl-kSX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Zeitfenster anzeigen">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,17 +44,43 @@
                                     <segue destination="rK3-ae-SXZ" kind="push" identifier="showAlleZeitfenster" id="FJQ-UF-1DD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="T5a-ch-SWe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="177" id="cYh-aS-SRQ"/>
+                                </constraints>
+                                <string key="text">Herzlich Willkommen auf der Admin Seite. Hier haben Sie die Möglichkeiten, alle Ärzte, alle Patiente und alle Zeitfenster zu sehen. Hier hat man auch die Möglichkeiten neuen Arzt bwz. neuen Patienten bwz. neues Zeitfenster für einen bestimmten Arzt zu erfassen.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asU-i7-EHB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="SfV-dw-Hbt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Alle Ärzte anzeigen">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="syU-f4-uyD" kind="push" identifier="showAlleAerzte" id="pF2-rs-mNr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98913043479999996" green="0.98913043479999996" blue="0.98913043479999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="reg-qO-P8V" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="3Sl-Oz-isN"/>
-                            <constraint firstItem="reg-qO-P8V" firstAttribute="leading" secondItem="Mdf-BT-9WJ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="8jN-X7-QnL"/>
-                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="trailing" secondItem="Mdf-BT-9WJ" secondAttribute="trailing" type="default" id="ACa-K2-Vbc"/>
-                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="BNH-bS-ZIy"/>
-                            <constraint firstItem="Mdf-BT-9WJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="C9F-zx-jh8"/>
-                            <constraint firstItem="reg-qO-P8V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="iPG-eG-1pg"/>
-                            <constraint firstItem="Mdf-BT-9WJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="jGg-64-1Kk"/>
-                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="88" id="kJX-mO-5hX"/>
+                            <constraint firstItem="reg-qO-P8V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="91" id="0fa-D7-4pY"/>
+                            <constraint firstAttribute="trailing" secondItem="T5a-ch-SWe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Gx5-q5-5Uu"/>
+                            <constraint firstItem="T5a-ch-SWe" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HR6-Lq-NkV"/>
+                            <constraint firstAttribute="trailing" secondItem="Ug1-r2-Wwr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IGg-SM-N8w"/>
+                            <constraint firstAttribute="bottom" secondItem="asU-i7-EHB" secondAttribute="bottom" constant="144" id="M2O-5X-HfC"/>
+                            <constraint firstItem="asU-i7-EHB" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="biO-0q-N7t"/>
+                            <constraint firstAttribute="bottom" secondItem="Ug1-r2-Wwr" secondAttribute="bottom" constant="34" id="flA-AR-gD7"/>
+                            <constraint firstAttribute="bottom" secondItem="reg-qO-P8V" secondAttribute="bottom" constant="90" id="i8N-TW-eCd"/>
+                            <constraint firstItem="T5a-ch-SWe" firstAttribute="top" secondItem="3" secondAttribute="top" constant="3" id="kjr-vP-XD5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Admin-Home" id="3SY-xe-C9j"/>
@@ -111,7 +127,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Ärzte" id="GJe-pG-IGj"/>
                     <connections>
-                        <segue destination="5oC-J8-W3s" kind="push" identifier="showAddArzt" id="N0h-Rl-Ftj"/>
+                        <segue destination="5oC-J8-W3s" kind="push" identifier="showAddArzt" id="Syi-qT-hdg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mZ-f1-oMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,6 +232,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ync-Ro-5Wf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1lS-e5-Ny2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Termin erfassen">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,14 +247,24 @@
                                     <segue destination="Tka-rU-8RR" kind="push" id="fLf-9g-oP4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aXL-Eh-qQO">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="i4C-kF-qbi"/>
+                                </constraints>
+                                <string key="text">Herzlich Willkommen auf der User Seite. Hier haben Sie die Möglichkeiten, alle Termine zu sehen und auch neuen Termin zu erfassen.</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TAx-aR-uSH" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AJK-x6-ZIP"/>
-                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="trailing" secondItem="TAx-aR-uSH" secondAttribute="trailing" type="default" id="Anp-fo-CaA"/>
-                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="89" id="JrN-S5-mbm"/>
-                            <constraint firstItem="TAx-aR-uSH" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ORt-fJ-5fv"/>
-                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vET-Jl-qFa"/>
+                            <constraint firstItem="TAx-aR-uSH" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="149" id="QuJ-jZ-gF7"/>
+                            <constraint firstAttribute="trailing" secondItem="Ync-Ro-5Wf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aJd-1D-Zbf"/>
+                            <constraint firstItem="aXL-Eh-qQO" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ixd-Nm-di4"/>
+                            <constraint firstItem="aXL-Eh-qQO" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="15" id="uNq-yi-v9Z"/>
+                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="224" id="uyw-u1-n24"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User-Home" id="zee-jF-Eqf"/>
@@ -990,7 +1019,6 @@
         <class className="AddZeitfensterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddZeitfensterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="removeKeybord:"/>
                 <relationship kind="action" name="saveZeitfenster:"/>
                 <relationship kind="action" name="startMethodToCheckMaxLength:"/>
                 <relationship kind="action" name="stopMethodToCheckMaxLength:"/>
