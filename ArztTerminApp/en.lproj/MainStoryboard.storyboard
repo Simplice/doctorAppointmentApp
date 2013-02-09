@@ -102,11 +102,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArztIdentifier" textLabel="62R-bu-Bli" detailTextLabel="KIU-ei-coM" style="IBUITableViewCellStyleSubtitle" id="9NU-ec-Ica">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArztIdentifier" textLabel="62R-bu-Bli" detailTextLabel="KIU-ei-coM" style="IBUITableViewCellStyleSubtitle" id="9NU-ec-Ica">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62R-bu-Bli">
@@ -122,6 +122,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="5oC-J8-W3s" kind="push" identifier="showEditArzt" id="wdO-iF-Inv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -794,11 +797,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ZeitfensterIdentifier" textLabel="Fb6-b4-6jf" detailTextLabel="y2M-B1-YQZ" style="IBUITableViewCellStyleValue1" id="zIo-gt-Dvd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ZeitfensterIdentifier" textLabel="Fb6-b4-6jf" detailTextLabel="y2M-B1-YQZ" style="IBUITableViewCellStyleValue1" id="zIo-gt-Dvd">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-b4-6jf">
@@ -814,6 +817,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="4YK-ec-YvI" kind="push" identifier="showAddZeitfenster" id="KUt-OZ-9js"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -822,9 +828,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Zeitfenster" id="iEH-oW-lkj"/>
-                    <connections>
-                        <segue destination="4YK-ec-YvI" kind="push" identifier="showAddZeitfenster" id="Gkz-OI-I0s"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBt-ne-rl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -839,11 +842,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PatientIdentifier" textLabel="tuc-cX-oY2" detailTextLabel="LlI-H7-mG9" style="IBUITableViewCellStyleSubtitle" id="ZZn-tf-ufS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PatientIdentifier" textLabel="tuc-cX-oY2" detailTextLabel="LlI-H7-mG9" style="IBUITableViewCellStyleSubtitle" id="ZZn-tf-ufS">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuc-cX-oY2">
@@ -859,6 +862,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="zoN-pZ-Vfe" kind="push" identifier="showEditPatient" id="AXh-iN-M5Z"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -868,7 +874,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Patiente" id="abF-oW-Y1B"/>
                     <connections>
-                        <segue destination="zoN-pZ-Vfe" kind="push" identifier="showAddPatient" id="CDO-kT-ahf"/>
+                        <segue destination="zoN-pZ-Vfe" kind="push" identifier="showAddPatient" id="IOp-8r-U1K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3D-Hl-iZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -948,7 +954,7 @@
         <scene sceneID="DuK-hR-oEU">
             <objects>
                 <navigationController id="7lW-nN-dYs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Admin" image="Add.ico" id="fwC-fq-hvn"/>
+                    <tabBarItem key="tabBarItem" title="Admin" image="Lock.png" id="fwC-fq-hvn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4uE-r1-UHf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -984,7 +990,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add.ico" width="32" height="32"/>
+        <image name="Lock.png" width="16" height="16"/>
     </resources>
     <classes>
         <class className="AddArztViewController" superclassName="UIViewController">
@@ -1075,4 +1081,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="IOp-8r-U1K"/>
+        <segue reference="wdO-iF-Inv"/>
+    </inferredMetricsTieBreakers>
 </document>
