@@ -62,6 +62,7 @@
     // 2- display data into the cell.
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", patient.vorname, patient.nachname];
     cell.detailTextLabel.text = patient.anrede;
+    [cell.textLabel setAdjustsFontSizeToFitWidth:YES]; 
     
     return cell;
 }

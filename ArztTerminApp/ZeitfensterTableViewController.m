@@ -63,6 +63,7 @@
     Zeitfenster *zeitfenster = (Zeitfenster *) [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",zeitfenster.arzt.anrede, zeitfenster.arzt.nachname];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@h%@-%@h%@", zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute];
+    [cell.textLabel setAdjustsFontSizeToFitWidth:YES]; 
         
     return cell;
 }

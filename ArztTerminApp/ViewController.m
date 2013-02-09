@@ -17,6 +17,8 @@
 
 @implementation ViewController
 
+@synthesize infoTextLabel = _infoTextLabel;
+
 @synthesize switcher = _switcher;
 
 - (void)viewDidLoad {
@@ -25,6 +27,9 @@
     
     // ajouter une image au backgroungColor
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
+    
+    self.infoTextLabel.attributedText = [self makeAttributedStringFromString:self.infoTextLabel.text];
+    
     //
     self.switcher = [[UISwitch alloc] init];
     [self.switcher setOn:YES];
@@ -73,8 +78,19 @@
     
 }
 
-- (IBAction)eingabeEntleeren:(id)sender {
+-(NSMutableAttributedString*) makeAttributedStringFromString: (NSString*) textString {
+    NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:textString];
+    NSInteger stringLength=[textString length];
+    UIColor *schwarz=[UIColor blackColor];
+    UIColor *_blueL=[UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
+    UIFont *font=[UIFont fontWithName:@"Helvetica-Bold" size:19.0f];
     
+    [attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSStrokeColorAttributeName value:schwarz range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:3.0] range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSBackgroundColorAttributeName value:_blueL range:NSMakeRange(28, 11)]; // 28 is the index where to start end 11 means counting 11 character after the startindex, even the startindex including
+    
+    return attString;
 }
 
 @end

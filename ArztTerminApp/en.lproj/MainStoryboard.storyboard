@@ -15,6 +15,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reg-qO-P8V">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="n31-Nj-S9A"/>
+                                    <constraint firstAttribute="height" constant="42" id="uWb-vH-ReA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Alle Patiente anzeigen">
@@ -44,9 +45,9 @@
                                     <segue destination="rK3-ae-SXZ" kind="push" identifier="showAlleZeitfenster" id="FJQ-UF-1DD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="T5a-ch-SWe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="T5a-ch-SWe">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="177" id="cYh-aS-SRQ"/>
+                                    <constraint firstAttribute="height" constant="244" id="eQy-1x-fci"/>
                                 </constraints>
                                 <string key="text">Herzlich Willkommen auf der Admin Seite. Hier haben Sie die Möglichkeiten, alle Ärzte, alle Patiente und alle Zeitfenster zu sehen. Hier hat man auch die Möglichkeiten neuen Arzt bwz. neuen Patienten bwz. neues Zeitfenster für einen bestimmten Arzt zu erfassen.</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -72,18 +73,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98913043479999996" green="0.98913043479999996" blue="0.98913043479999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="reg-qO-P8V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="91" id="0fa-D7-4pY"/>
+                            <constraint firstItem="asU-i7-EHB" firstAttribute="baseline" secondItem="reg-qO-P8V" secondAttribute="baseline" type="default" id="4D8-pz-r9G"/>
+                            <constraint firstAttribute="bottom" secondItem="Ug1-r2-Wwr" secondAttribute="bottom" constant="6" id="9Gi-Xb-2NZ"/>
                             <constraint firstAttribute="trailing" secondItem="T5a-ch-SWe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Gx5-q5-5Uu"/>
                             <constraint firstItem="T5a-ch-SWe" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HR6-Lq-NkV"/>
-                            <constraint firstAttribute="trailing" secondItem="Ug1-r2-Wwr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IGg-SM-N8w"/>
-                            <constraint firstAttribute="bottom" secondItem="asU-i7-EHB" secondAttribute="bottom" constant="144" id="M2O-5X-HfC"/>
-                            <constraint firstItem="asU-i7-EHB" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="biO-0q-N7t"/>
-                            <constraint firstAttribute="bottom" secondItem="Ug1-r2-Wwr" secondAttribute="bottom" constant="34" id="flA-AR-gD7"/>
-                            <constraint firstAttribute="bottom" secondItem="reg-qO-P8V" secondAttribute="bottom" constant="90" id="i8N-TW-eCd"/>
+                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="top" secondItem="asU-i7-EHB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TtO-BG-xsa"/>
+                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="79" id="ZS1-y0-01d"/>
+                            <constraint firstItem="reg-qO-P8V" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="e5P-qG-RxM"/>
                             <constraint firstItem="T5a-ch-SWe" firstAttribute="top" secondItem="3" secondAttribute="top" constant="3" id="kjr-vP-XD5"/>
+                            <constraint firstItem="asU-i7-EHB" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mTR-Ow-XMg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Admin-Home" id="3SY-xe-C9j"/>
+                    <connections>
+                        <outlet property="infoTextLabel" destination="T5a-ch-SWe" id="xT3-79-sIz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,9 +251,9 @@
                                     <segue destination="Tka-rU-8RR" kind="push" id="fLf-9g-oP4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aXL-Eh-qQO">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aXL-Eh-qQO">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="116" id="i4C-kF-qbi"/>
+                                    <constraint firstAttribute="height" constant="173" id="bq6-5H-mHg"/>
                                 </constraints>
                                 <string key="text">Herzlich Willkommen auf der User Seite. Hier haben Sie die Möglichkeiten, alle Termine zu sehen und auch neuen Termin zu erfassen.</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -259,15 +263,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TAx-aR-uSH" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AJK-x6-ZIP"/>
-                            <constraint firstItem="TAx-aR-uSH" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="149" id="QuJ-jZ-gF7"/>
-                            <constraint firstAttribute="trailing" secondItem="Ync-Ro-5Wf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aJd-1D-Zbf"/>
+                            <constraint firstAttribute="bottom" secondItem="TAx-aR-uSH" secondAttribute="bottom" constant="8" id="Hyf-p7-H8J"/>
+                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="trailing" secondItem="Ni2-20-B29" secondAttribute="trailing" type="default" id="TVw-oE-41m"/>
+                            <constraint firstItem="TAx-aR-uSH" firstAttribute="baseline" secondItem="Ync-Ro-5Wf" secondAttribute="baseline" type="default" id="ULh-Qu-BeR"/>
+                            <constraint firstItem="TAx-aR-uSH" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" type="default" id="aE0-wL-RwR"/>
                             <constraint firstItem="aXL-Eh-qQO" firstAttribute="leading" secondItem="Ni2-20-B29" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ixd-Nm-di4"/>
                             <constraint firstItem="aXL-Eh-qQO" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="15" id="uNq-yi-v9Z"/>
-                            <constraint firstItem="Ync-Ro-5Wf" firstAttribute="top" secondItem="Ni2-20-B29" secondAttribute="top" constant="224" id="uyw-u1-n24"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User-Home" id="zee-jF-Eqf"/>
+                    <connections>
+                        <outlet property="infoTextLabel" destination="aXL-Eh-qQO" id="FZS-xb-dlW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOT-lz-vDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -980,7 +987,7 @@
         <image name="Add.ico" width="32" height="32"/>
     </resources>
     <classes>
-        <class className="AddArztViewController" superclassName="UITableViewController">
+        <class className="AddArztViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddArztViewController.h"/>
             <relationships>
                 <relationship kind="action" name="removeKeybord:"/>
@@ -1046,11 +1053,14 @@
         </class>
         <class className="UserViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="infoTextLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="eingabeEntleeren:"/>
+                <relationship kind="outlet" name="infoTextLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ZeitfensterTableViewController" superclassName="JSMTableViewController">

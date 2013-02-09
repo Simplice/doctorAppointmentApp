@@ -10,4 +10,6 @@
 
 @interface UserViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *infoTextLabel;
+
 @end

@@ -10,7 +10,6 @@
 
 @interface ViewController : UIViewController <UIAlertViewDelegate>
 
-
-- (IBAction)eingabeEntleeren:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *infoTextLabel;
 
 @end
