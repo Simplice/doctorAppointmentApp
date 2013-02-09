@@ -973,7 +973,7 @@
         <scene sceneID="H1I-cS-dO7">
             <objects>
                 <navigationController id="E74-zs-AES" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="User" id="mfY-3S-rMd"/>
+                    <tabBarItem key="tabBarItem" title="User" image="111-user.png" id="mfY-3S-rMd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R0Q-WF-Uio">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -990,6 +990,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="111-user.png" width="24" height="21"/>
         <image name="Lock.png" width="16" height="16"/>
     </resources>
     <classes>
