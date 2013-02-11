@@ -25,6 +25,7 @@
 
 @synthesize beginHour = _beginHour, beginMin = _beginMin, endHour = _endHour, endMin = _endMin, ganzerName = _ganzerName;
 @synthesize timer = _timer, currentTextField = _currentTextField, gefundenerArzt = _gefundenerArzt;
+@synthesize selectedZeitfenster = _selectedZeitfenster;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,6 +41,15 @@
     
     // ajouter une image au backgroungColor
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
+    
+    if (self.selectedZeitfenster != nil) {
+        self.beginHour.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.anfangStunde];
+        self.beginMin.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.anfangMinunte];
+        self.endHour.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.endStunde];
+        self.endMin.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.endMinute];
+        self.ganzerName.text = [NSString stringWithFormat:@"%@, %@", self.selectedZeitfenster.arzt.nachname, self.selectedZeitfenster.arzt.vorname];
+        [self.ganzerName setEnabled:NO]; // Disable the Field
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,12 +119,20 @@
     }
     
     // save the new Object into the database
-    Zeitfenster *zeitfenster = [JSMCoreDataHelper insertManagedObjectOfClass:[Zeitfenster class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
-    [zeitfenster setAnfangStunde:[NSNumber numberWithInt:[self.beginHour.text intValue]]];
-    [zeitfenster setAnfangMinunte:[NSNumber numberWithInt:[self.beginMin.text intValue]]];
-    [zeitfenster setEndStunde:[NSNumber numberWithInt:[self.endHour.text intValue]]];
-    [zeitfenster setEndMinute:[NSNumber numberWithInt:[self.endMin.text intValue]]];
-    [zeitfenster setArzt:self.gefundenerArzt];
+    if (self.selectedZeitfenster == nil) {
+        Zeitfenster *zeitfenster = [JSMCoreDataHelper insertManagedObjectOfClass:[Zeitfenster class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
+        [zeitfenster setAnfangStunde:[NSNumber numberWithInt:[self.beginHour.text intValue]]];
+        [zeitfenster setAnfangMinunte:[NSNumber numberWithInt:[self.beginMin.text intValue]]];
+        [zeitfenster setEndStunde:[NSNumber numberWithInt:[self.endHour.text intValue]]];
+        [zeitfenster setEndMinute:[NSNumber numberWithInt:[self.endMin.text intValue]]];
+        [zeitfenster setArzt:self.gefundenerArzt];
+    } else {
+        self.selectedZeitfenster.anfangStunde = [NSNumber numberWithInt:[self.beginHour.text intValue]];
+        self.selectedZeitfenster.anfangMinunte = [NSNumber numberWithInt:[self.beginMin.text intValue]];
+        self.selectedZeitfenster.endStunde = [NSNumber numberWithInt:[self.endHour.text intValue]];
+        self.selectedZeitfenster.endMinute = [NSNumber numberWithInt:[self.endMin.text intValue]];
+        // Arztname braucht nicht überschrieben werden, weil das Feld readonly angezeigt wird.
+    }
     
     [JSMCoreDataHelper saveManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     NSLog(@"Das Zeitfenster wurde erfolgreich gespeichert");

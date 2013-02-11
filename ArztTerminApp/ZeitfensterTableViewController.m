@@ -8,6 +8,7 @@
 
 #import "ZeitfensterTableViewController.h"
 #import "JSMCoreDataHelper.h"
+#import "AddZeitfensterViewController.h"
 #import "Constants.h"
 #import "Arzt.h"
 #import "Zeitfenster.h"
@@ -80,6 +81,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [[JSMCoreDataHelper managedObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showAddZeitfenster"] || [segue.identifier isEqualToString:@"showEditZeitfenster"]) {
+        AddZeitfensterViewController *controller = [segue destinationViewController];
+        controller.selectedZeitfenster = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     }
 }
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Zeitfenster;
+
 @interface AddZeitfensterViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *beginHour;
@@ -15,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *endHour;
 @property (strong, nonatomic) IBOutlet UITextField *endMin;
 @property (strong, nonatomic) IBOutlet UITextField *ganzerName;
+
+@property (strong, nonatomic) IBOutlet Zeitfenster *selectedZeitfenster;
 
 - (IBAction)saveZeitfenster:(id)sender;
 
