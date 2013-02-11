@@ -81,14 +81,16 @@
 -(NSMutableAttributedString*) makeAttributedStringFromString: (NSString*) textString {
     NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:textString];
     NSInteger stringLength=[textString length];
-    UIColor *schwarz=[UIColor blackColor];
-    UIColor *_blueL=[UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
+    UIColor *strokeColor=[UIColor blackColor];
+    UIColor *backgroundColor=[UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
+    UIColor *foregroundColor=[UIColor colorWithRed:0.4 green:0.6 blue:0.93 alpha:0.75];
     UIFont *font=[UIFont fontWithName:@"Helvetica-Bold" size:19.0f];
     
     [attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
-    [attString addAttribute:NSStrokeColorAttributeName value:schwarz range:NSMakeRange(0, stringLength)];
-    [attString addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:3.0] range:NSMakeRange(0, stringLength)];
-    [attString addAttribute:NSBackgroundColorAttributeName value:_blueL range:NSMakeRange(28, 11)]; // 28 is the index where to start end 11 means counting 11 character after the startindex, even the startindex including
+    [attString addAttribute:NSForegroundColorAttributeName value:foregroundColor range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSStrokeColorAttributeName value:strokeColor range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithFloat:-3.0] range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSBackgroundColorAttributeName value:backgroundColor range:NSMakeRange(28, 11)]; // 28 is the index where to start end 11 means counting 11 character after the startindex, even the startindex including
     
     return attString;
 }

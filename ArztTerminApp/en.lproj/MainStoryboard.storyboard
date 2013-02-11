@@ -19,7 +19,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Alle Patiente anzeigen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.98913043478260865" green="0.98913043478260865" blue="0.98913043478260865" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
@@ -35,7 +35,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Zeitfenster anzeigen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -60,7 +60,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Alle Ärzte anzeigen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -78,10 +78,10 @@
                             <constraint firstAttribute="trailing" secondItem="T5a-ch-SWe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Gx5-q5-5Uu"/>
                             <constraint firstItem="T5a-ch-SWe" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HR6-Lq-NkV"/>
                             <constraint firstItem="Ug1-r2-Wwr" firstAttribute="top" secondItem="asU-i7-EHB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TtO-BG-xsa"/>
-                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="79" id="ZS1-y0-01d"/>
                             <constraint firstItem="reg-qO-P8V" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="e5P-qG-RxM"/>
                             <constraint firstItem="T5a-ch-SWe" firstAttribute="top" secondItem="3" secondAttribute="top" constant="3" id="kjr-vP-XD5"/>
                             <constraint firstItem="asU-i7-EHB" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mTR-Ow-XMg"/>
+                            <constraint firstItem="Ug1-r2-Wwr" firstAttribute="centerX" secondItem="T5a-ch-SWe" secondAttribute="centerX" type="default" id="st3-hl-YcJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Admin-Home" id="3SY-xe-C9j"/>
@@ -228,7 +228,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Termine anzeigen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -244,7 +244,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Termin erfassen">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -621,8 +621,11 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Jh-u8d">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="z0t-bH-gA3"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Button">
+                                                    <state key="normal" title="speichern">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -704,15 +707,15 @@
                                             <constraint firstItem="dHg-U0-oXv" firstAttribute="leading" secondItem="uRQ-lV-rAR" secondAttribute="leading" type="default" id="El0-F0-Afc"/>
                                             <constraint firstItem="dHg-U0-oXv" firstAttribute="centerY" secondItem="rpg-oI-Dqf" secondAttribute="centerY" type="default" id="M2g-Cl-uXk"/>
                                             <constraint firstItem="uRQ-lV-rAR" firstAttribute="leading" secondItem="a3X-8f-VdE" secondAttribute="leading" type="default" id="MJn-EC-bRO"/>
+                                            <constraint firstItem="a3X-8f-VdE" firstAttribute="top" secondItem="rpg-oI-Dqf" secondAttribute="top" constant="8" id="OY4-Tx-fUi"/>
                                             <constraint firstItem="kiA-fV-O9K" firstAttribute="baseline" secondItem="aws-Fl-FZ7" secondAttribute="baseline" type="default" id="OY9-ir-Qw0"/>
                                             <constraint firstItem="NE4-by-5Cz" firstAttribute="top" secondItem="a3X-8f-VdE" secondAttribute="top" type="default" id="Td6-gD-XBf"/>
                                             <constraint firstAttribute="trailing" secondItem="kiA-fV-O9K" secondAttribute="trailing" constant="126" id="UiW-q9-kU5"/>
                                             <constraint firstItem="NE4-by-5Cz" firstAttribute="leading" secondItem="rpg-oI-Dqf" secondAttribute="leading" constant="90" id="WZC-Dg-kay"/>
-                                            <constraint firstItem="Nsb-Jh-u8d" firstAttribute="trailing" secondItem="dHg-U0-oXv" secondAttribute="trailing" type="default" id="YcB-wR-37M"/>
                                             <constraint firstItem="aws-Fl-FZ7" firstAttribute="baseline" secondItem="NE4-by-5Cz" secondAttribute="baseline" type="default" id="gWJ-lQ-qTh"/>
-                                            <constraint firstItem="NE4-by-5Cz" firstAttribute="top" secondItem="rpg-oI-Dqf" secondAttribute="top" constant="8" id="gfZ-tT-Gaj"/>
                                             <constraint firstAttribute="bottom" secondItem="Nsb-Jh-u8d" secondAttribute="bottom" constant="12" id="k5C-r5-gnb"/>
                                             <constraint firstItem="Iou-zu-0MJ" firstAttribute="centerY" secondItem="NE4-by-5Cz" secondAttribute="centerY" type="default" id="lnl-qA-V2f"/>
+                                            <constraint firstItem="Nsb-Jh-u8d" firstAttribute="trailing" secondItem="dHg-U0-oXv" secondAttribute="trailing" type="default" id="mfK-Zb-bE1"/>
                                             <constraint firstItem="eXJ-86-9kb" firstAttribute="top" secondItem="rpg-oI-Dqf" secondAttribute="top" constant="7" id="oPN-qi-6Ye"/>
                                             <constraint firstItem="aws-Fl-FZ7" firstAttribute="leading" secondItem="rpg-oI-Dqf" secondAttribute="leading" constant="143" id="rW2-b4-gm7"/>
                                             <constraint firstItem="kiA-fV-O9K" firstAttribute="bottom" secondItem="a3X-8f-VdE" secondAttribute="bottom" type="default" id="ulg-ag-0Fx"/>
@@ -1041,6 +1044,7 @@
                 <relationship kind="outlet" name="endHour" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="endMin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="ganzerName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="selectedZeitfenster" candidateClass="Zeitfenster"/>
             </relationships>
         </class>
         <class className="AerzteTableViewController" superclassName="JSMTableViewController">
@@ -1069,6 +1073,9 @@
             <relationships>
                 <relationship kind="outlet" name="infoTextLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="Zeitfenster" superclassName="NSManagedObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Zeitfenster.h"/>
         </class>
         <class className="ZeitfensterTableViewController" superclassName="JSMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ZeitfensterTableViewController.h"/>
