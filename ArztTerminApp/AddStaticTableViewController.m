@@ -51,6 +51,7 @@
         NSArray *items = [ApplicationHelper extrahiereDayMonthYearFromDate:self.selectedZeitfenster.termin.datum];
         Patient *patient = [[self.selectedZeitfenster.termin.patient allObjects] objectAtIndex:0]; // TODO look the better way to fix it, insteak of using index 0
         self.vollerNamePatient.text = [NSString stringWithFormat:@"%@, %@", patient.nachname, patient.vorname];
+        [self.vollerNamePatient setEnabled:NO]; // Disable the inputfield
         self.tag.text = [items objectAtIndex:0];
         self.monat.text = [items objectAtIndex:1];
         self.jahr.text = [items objectAtIndex:2];
