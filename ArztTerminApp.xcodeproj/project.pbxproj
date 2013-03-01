@@ -26,6 +26,7 @@
 		F13CE3EE16B05C46003B6CB0 /* Zeitfenster.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3ED16B05C46003B6CB0 /* Zeitfenster.m */; };
 		F13CE3F116B074D0003B6CB0 /* PatienteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3F016B074D0003B6CB0 /* PatienteTableViewController.m */; };
 		F13CE3F916B07AB1003B6CB0 /* AddArztViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CE3F816B07AB1003B6CB0 /* AddArztViewController.m */; };
+		F163C73416D2A9880026A8C8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F163C73316D2A9880026A8C8 /* icon.png */; };
 		F1A4DFC816B152B100EBAD4C /* JSMCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFC716B152B100EBAD4C /* JSMCoreDataHelper.m */; };
 		F1A4DFD216B1F72A00EBAD4C /* AddZeitfensterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFD116B1F72A00EBAD4C /* AddZeitfensterViewController.m */; };
 		F1A4DFD516B2CC2F00EBAD4C /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4DFD416B2CC2F00EBAD4C /* Validator.m */; };
@@ -76,6 +77,7 @@
 		F13CE3F016B074D0003B6CB0 /* PatienteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatienteTableViewController.m; sourceTree = "<group>"; };
 		F13CE3F716B07AB1003B6CB0 /* AddArztViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddArztViewController.h; sourceTree = "<group>"; };
 		F13CE3F816B07AB1003B6CB0 /* AddArztViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddArztViewController.m; sourceTree = "<group>"; };
+		F163C73316D2A9880026A8C8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		F1A4DFC616B152B100EBAD4C /* JSMCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMCoreDataHelper.h; sourceTree = "<group>"; };
 		F1A4DFC716B152B100EBAD4C /* JSMCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMCoreDataHelper.m; sourceTree = "<group>"; };
 		F1A4DFD016B1F72A00EBAD4C /* AddZeitfensterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZeitfensterViewController.h; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		F1A4DFC316B12EF400EBAD4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F163C73316D2A9880026A8C8 /* icon.png */,
 				F1A9F88716C59EE3002B4F2C /* Lock.png */,
 				F1A9F88516C59EB2002B4F2C /* Terminate.png */,
 				F1A9F87E16C59B3F002B4F2C /* 111-user.png */,
@@ -346,6 +349,7 @@
 				F1A9F87F16C59B3F002B4F2C /* 111-user.png in Resources */,
 				F1A9F88616C59EB2002B4F2C /* Terminate.png in Resources */,
 				F1A9F88816C59EE3002B4F2C /* Lock.png in Resources */,
+				F163C73416D2A9880026A8C8 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
