@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *endHour;
 @property (strong, nonatomic) IBOutlet UITextField *endMin;
 @property (strong, nonatomic) IBOutlet UITextField *ganzerName;
+@property (strong, nonatomic) IBOutlet UILabel *displayDatumAsText;
+@property (nonatomic, strong) NSDate *storedDatum;
 
 @property (strong, nonatomic) IBOutlet Zeitfenster *selectedZeitfenster;
 

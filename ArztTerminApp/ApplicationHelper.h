@@ -16,4 +16,8 @@
 
 +(NSArray *) extrahiereDayMonthYearFromDate: (NSDate*) date;
 
++(NSString *) displayDateObjectAlsString: (NSDate*) date;
+
++(NSDate *) determineDateWithoutTime: (NSDate *) date;
+
 @end

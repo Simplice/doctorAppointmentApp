@@ -33,5 +33,25 @@
     return arrays;
 }
 
++(NSString *) displayDateObjectAlsString: (NSDate*) date {
+    NSString *result;
+    // 1. Set Location (the selected date with be displayed with german format)
+    //NSLocale *deLocate = [[NSLocale alloc] initWithLocaleIdentifier:@"de_DE"];
+    NSDateFormatter *dformat = [[NSDateFormatter alloc]init]; //
+    [dformat setDateFormat:@"dd-MM-yyyy"];
+    result = [dformat stringFromDate:date];
+    return result;
+}
+
++(NSDate *) determineDateWithoutTime: (NSDate *) date {
+    NSCalendar* myCalendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [myCalendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+                                                 fromDate:date];
+    [components setHour: 23];
+    [components setMinute: 0];
+    [components setSecond: 0];
+    return[myCalendar dateFromComponents:components];
+}
+
 
 @end

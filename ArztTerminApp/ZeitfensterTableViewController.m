@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "Arzt.h"
 #import "Zeitfenster.h"
+#import "ApplicationHelper.h"
 
 @interface ZeitfensterTableViewController ()
 
@@ -63,7 +64,7 @@
     
     Zeitfenster *zeitfenster = (Zeitfenster *) [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",zeitfenster.arzt.anrede, zeitfenster.arzt.nachname];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@h%@-%@h%@", zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ [%@h%@-%@h%@]", [ApplicationHelper displayDateObjectAlsString:zeitfenster.datum], zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute];
     [cell.textLabel setAdjustsFontSizeToFitWidth:YES]; 
         
     return cell;
@@ -88,6 +89,12 @@
     if ([segue.identifier isEqualToString:@"showAddZeitfenster"] || [segue.identifier isEqualToString:@"showEditZeitfenster"]) {
         AddZeitfensterViewController *controller = [segue destinationViewController];
         controller.selectedZeitfenster = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if(self.tableView.editing) {
+        [self.navigationController setToolbarHidden:NO animated:YES];
     }
 }
 

@@ -13,6 +13,7 @@
 #import "Zeitfenster.h"
 #import "Arzt.h"
 #import "Constants.h"
+#import "ApplicationHelper.h"
 
 @interface ZeitfensterWaehlenTableViewController ()
 
@@ -73,7 +74,7 @@
     // Configure the cell...
     Zeitfenster *zeitfenster = (Zeitfenster *) [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",zeitfenster.arzt.anrede, zeitfenster.arzt.nachname];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@h%@-%@h%@ (%@)", zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute, [self ermittleTermineStatus:zeitfenster.termin]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ [%@h%@-%@h%@] (%@)", [ApplicationHelper displayDateObjectAlsString:zeitfenster.datum],zeitfenster.anfangStunde,zeitfenster.anfangMinunte,zeitfenster.endStunde,zeitfenster.endMinute, [self ermittleTermineStatus:zeitfenster.termin]];
     
     [cell.textLabel setAdjustsFontSizeToFitWidth:YES];
     [cell.detailTextLabel setAdjustsFontSizeToFitWidth:YES];

@@ -12,9 +12,7 @@
 
 @interface AddStaticTableViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *tag;
-@property (strong, nonatomic) IBOutlet UITextField *monat;
-@property (strong, nonatomic) IBOutlet UITextField *jahr;
+@property (strong, nonatomic) IBOutlet UILabel *displayDatumAsText;
 
 @property (strong, nonatomic) IBOutlet UITextField *vollerNamePatient;
 @property (strong, nonatomic) IBOutlet UILabel *arztname;

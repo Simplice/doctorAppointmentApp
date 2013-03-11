@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UITextField *currentTextField;
 @property (nonatomic, strong) Patient *gefundenerPatient;
+@property (nonatomic, strong) NSDate *datumDesTermins;
 
 @end
 
@@ -28,7 +29,7 @@
 
 @synthesize arztname = _arztname, beginTermin = _beginTermin, endTermin = _endTermin, currentTextField = _currentTextField;
 @synthesize selectedZeitfenster = _selectedZeitfenster, timer = _timer, vollerNamePatient = _vollerNamePatient;
-@synthesize gefundenerPatient = _gefundenerPatient;
+@synthesize gefundenerPatient = _gefundenerPatient, displayDatumAsText = _displayDatumAsText, datumDesTermins = _datumDesTermins;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -41,20 +42,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.selectedZeitfenster != nil) {
-        self.arztname.text =  [NSString stringWithFormat:@"%@ %@", self.selectedZeitfenster.arzt.vorname, self.selectedZeitfenster.arzt.nachname];
-        self.beginTermin.text = [NSString stringWithFormat:@"%@:%@", self.selectedZeitfenster.anfangStunde, self.selectedZeitfenster.anfangMinunte];
-        self.endTermin.text = [NSString stringWithFormat:@"%@:%@", self.selectedZeitfenster.endStunde, self.selectedZeitfenster.endMinute];
-    }
+    self.arztname.text =  [NSString stringWithFormat:@"%@ %@", self.selectedZeitfenster.arzt.vorname, self.selectedZeitfenster.arzt.nachname];
+    self.beginTermin.text = [NSString stringWithFormat:@"%@:%@", self.selectedZeitfenster.anfangStunde, self.selectedZeitfenster.anfangMinunte];
+    self.endTermin.text = [NSString stringWithFormat:@"%@:%@", self.selectedZeitfenster.endStunde, self.selectedZeitfenster.endMinute];
+    self.displayDatumAsText.text = [ApplicationHelper displayDateObjectAlsString:self.selectedZeitfenster.datum];
+    self.datumDesTermins = self.selectedZeitfenster.datum;
+    
     // wenn das selectierte Zeitfenster schon ein Termin hat, dann wird dieser angezeigt
     if (self.selectedZeitfenster.termin != nil) {
-        NSArray *items = [ApplicationHelper extrahiereDayMonthYearFromDate:self.selectedZeitfenster.termin.datum];
         Patient *patient = [[self.selectedZeitfenster.termin.patient allObjects] objectAtIndex:0]; // TODO look the better way to fix it, insteak of using index 0
         self.vollerNamePatient.text = [NSString stringWithFormat:@"%@, %@", patient.nachname, patient.vorname];
         [self.vollerNamePatient setEnabled:NO]; // Disable the inputfield
-        self.tag.text = [items objectAtIndex:0];
-        self.monat.text = [items objectAtIndex:1];
-        self.jahr.text = [items objectAtIndex:2];
     }
 
 }
@@ -72,26 +70,7 @@
 
 - (IBAction)saveTermin:(id)sender {
     [self removeKeybord:sender];
-    
-    if (self.tag.text.length == 0 || self.monat.text.length == 0 || self.jahr.text.length == 0 || self.vollerNamePatient.text.length == 0) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Alle Felder sind Pflicht."];
-        return;
-    }
-    // hier wird geprüft, ob dass Monat größer als 12 ist
-    if ([self.monat.text intValue] > 12) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Die Monateingabe muss zwischen 1 bis 12 liegen."];
-        return;
-    }
-    // hier wird geprüft, ob dass Jahr 4 Ziffer hat
-    if (self.jahr.text.length != 4) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Das eingegebene Jahr muss 4 Ziffer sein."];
-        return;
-    }    
-    if([Validator checkIfDateInThePassWithDay:self.tag.text andWithMonth:self.monat.text andWithYear:self.jahr.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Das Datum darf nicht in der Vergangenheit liegen"];
-        return;
-    }
-    
+        
     //prüfe ob Patient existiert, sonst Fehlermeldung raus werfen
     if (![self ladenPatientMitEingegebenemNamen:self.vollerNamePatient.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
         [ApplicationHelper fehlermeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden."];
@@ -103,15 +82,13 @@
         Termin *termin = [JSMCoreDataHelper insertManagedObjectOfClass:[Termin class] inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
         termin.zeitfenster = [NSSet setWithObject:self.selectedZeitfenster];
         termin.patient = [NSSet setWithObject:self.gefundenerPatient];
-        termin.datum = [ApplicationHelper createDateComponentWithDay:self.tag.text andWithMonth:self.monat.text andWithYear:self.jahr.text];
+        termin.datum = self.datumDesTermins;
     }else { // MERGED
         // prüfe ob der Patientname geändert wurde, wenn ja dann nach dem neuen Patienten suche
         if (![self ladenPatientMitEingegebenemNamen:self.vollerNamePatient.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
             [ApplicationHelper fehlermeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden."];
             return;
         }
-        [self.selectedZeitfenster.termin setDatum:[ApplicationHelper createDateComponentWithDay:self.tag.text
-                                                                                   andWithMonth:self.monat.text andWithYear:self.jahr.text]];
         [self.selectedZeitfenster.termin.patient setByAddingObject:self.gefundenerPatient];
     }
     

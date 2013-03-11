@@ -21,5 +21,5 @@ NSString * const cEntityAttributeTerminDatum = @"datum"; // datum
 
 NSString * const cDatabaseFilename = @"database.sqlite";
 
-NSString * const cUsername = @"stc";
-NSString * const cpasswort = @"stc";
+NSString * const cUsername = @"admin";
+NSString * const cpasswort = @"admin";

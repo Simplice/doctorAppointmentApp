@@ -10,6 +10,7 @@
 #define MAX_HOUR_PER_DAY 24
 
 #import "Validator.h"
+#import "ApplicationHelper.h"
 
 @implementation Validator
 
@@ -73,6 +74,17 @@
     NSDate *heutigesDatum = [NSDate date];
     
     NSComparisonResult result = [heutigesDatum compare:eingegebenesDatum];
+    if (result == NSOrderedDescending) {
+        return YES; // Das Datum liegt in der Vergangenheit
+    }
+    
+    return NO;
+}
+
++(BOOL) checkIfDateInThePass: (NSDate *) date {
+    NSDate *heutigesDatum = [NSDate date];
+    NSComparisonResult result = [[ApplicationHelper determineDateWithoutTime:heutigesDatum]
+                                 compare:[ApplicationHelper determineDateWithoutTime:date]];
     if (result == NSOrderedDescending) {
         return YES; // Das Datum liegt in der Vergangenheit
     }

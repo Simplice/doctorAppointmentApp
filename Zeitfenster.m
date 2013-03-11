@@ -2,7 +2,7 @@
 //  Zeitfenster.m
 //  ArztTerminApp
 //
-//  Created by Simplice Tchoupkoua on 23.01.13.
+//  Created by Simplice Tchoupkoua on 08.03.13.
 //  Copyright (c) 2013 Simplice. All rights reserved.
 //
 
@@ -13,10 +13,11 @@
 
 @implementation Zeitfenster
 
-@dynamic anfangStunde;
 @dynamic anfangMinunte;
-@dynamic endStunde;
+@dynamic anfangStunde;
 @dynamic endMinute;
+@dynamic endStunde;
+@dynamic datum;
 @dynamic arzt;
 @dynamic termin;
 

@@ -24,4 +24,6 @@
 
 +(BOOL) checkIfDateInThePassWithDay: (NSString*) day andWithMonth: (NSString*) month andWithYear: (NSString*) year;
 
++(BOOL) checkIfDateInThePass: (NSDate *) date;
+
 @end

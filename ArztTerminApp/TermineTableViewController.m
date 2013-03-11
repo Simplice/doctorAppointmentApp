@@ -76,7 +76,7 @@
     static NSString *CellIdentifier = @"TermineIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // 1- Get each ROW of tableAllMovies. Configure the cell...
+    // 1- Get each ROW. Configure the cell...
     Termin *termin = [self.fetchedResultsController objectAtIndexPath:indexPath];
     // 2- Get Zeitfenster from the object Termin
     Zeitfenster *zeitfenster = [[termin.zeitfenster allObjects] objectAtIndex:0]; // TODO look the better way to fix it, insteak of using index 0
@@ -85,7 +85,7 @@
     Patient *patient = [[termin.patient allObjects] objectAtIndex:0];// TODO look the better way to fix it, insteak of using index 0
 
     // 4- display data into the cell.
-    cell.textLabel.text = [NSString stringWithFormat:@"Patient/in: %@ %@ (Arzt/in: %@)", patient.vorname, patient.nachname, zeitfenster.arzt.nachname];
+    cell.textLabel.text = [NSString stringWithFormat:@"Patient/in: %@ %@ (Arzt: %@)", patient.vorname, patient.nachname, zeitfenster.arzt.nachname];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@   %@", [self formatterToGermanDate:termin.datum],
                                  [NSString stringWithFormat:@"(%@:%@ - %@:%@)", zeitfenster.anfangStunde, zeitfenster.anfangMinunte, zeitfenster.endStunde, zeitfenster.endMinute]];
     //cell.textLabel.font = [UIFont systemFontOfSize:12.0];

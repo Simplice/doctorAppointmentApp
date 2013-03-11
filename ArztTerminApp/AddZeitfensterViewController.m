@@ -12,20 +12,22 @@
 #import "Arzt.h"
 #import "Zeitfenster.h"
 #import "ApplicationHelper.h"
+#import "DatePickerViewController.h"
 
 @interface AddZeitfensterViewController ()
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UITextField *currentTextField;
 @property (nonatomic, strong) Arzt *gefundenerArzt;
+@property (nonatomic, assign) BOOL datenUeberschneidenSich;
 
 @end
 
 @implementation AddZeitfensterViewController
 
 @synthesize beginHour = _beginHour, beginMin = _beginMin, endHour = _endHour, endMin = _endMin, ganzerName = _ganzerName;
-@synthesize timer = _timer, currentTextField = _currentTextField, gefundenerArzt = _gefundenerArzt;
-@synthesize selectedZeitfenster = _selectedZeitfenster;
+@synthesize timer = _timer, currentTextField = _currentTextField, gefundenerArzt = _gefundenerArzt, displayDatumAsText = _displayDatumAsText;
+@synthesize selectedZeitfenster = _selectedZeitfenster, storedDatum = _storedDatum, datenUeberschneidenSich = _datenUeberschneidenSich;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,6 +41,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self.navigationController setToolbarHidden:YES animated:YES];
+    
     // ajouter une image au backgroungColor
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
     
@@ -47,9 +51,16 @@
         self.beginMin.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.anfangMinunte];
         self.endHour.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.endStunde];
         self.endMin.text = [NSString stringWithFormat:@"%@", self.selectedZeitfenster.endMinute];
+        self.displayDatumAsText.text = [ApplicationHelper displayDateObjectAlsString:self.selectedZeitfenster.datum];
+        self.storedDatum = self.selectedZeitfenster.datum;
         self.ganzerName.text = [NSString stringWithFormat:@"%@, %@", self.selectedZeitfenster.arzt.nachname, self.selectedZeitfenster.arzt.vorname];
         [self.ganzerName setEnabled:NO]; // Disable the Field
     }
+    
+    // 2 Add a tap gesture recognizer to the view, so that if the keyboard is displayed, tapping anywhere outside of an input object will call the hideKeyboard method to dismiss the keyboard.
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,9 +68,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -my own methods
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showDatePicker"]) {
+        DatePickerViewController *controller = [segue destinationViewController];
+        controller.zeitfensterViewController = self;
+    }
+}
+
+#pragma mark -my private methods
 - (IBAction)removeKeybord:(id)sender {
     [self resignFirstResponder];
+}
+
+- (void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (IBAction) startMethodToCheckMaxLength: (id) sender {
@@ -111,10 +133,19 @@
         [ApplicationHelper fehlermeldungAnzeigen:@"Startuhrzeit muss nicht größer als Enduhrzeit sein."];
         return;
     }
-    
+    // Validate: check if termin-Datum is not empty
+    if(self.storedDatum == nil) {
+        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte wählen Sie ein Datum ein."];
+        return;
+    }
     //check and load Arzt if he exists
     if(![self ladenArztMitEingegebenemNamen:self.ganzerName.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
         [ApplicationHelper fehlermeldungAnzeigen:@"Bitte überprüfen Sie die eingegebenen Daten."];
+        return;
+    }
+    
+    if ([self pruefeZeitfensterSichUeberschneidenMitgespeicherteZeitfenster:self.gefundenerArzt.zeitfenster]) {
+        [ApplicationHelper fehlermeldungAnzeigen:@"Das eingegebene Zeitfenster überschneiden sich mit dem schon gespeicherten Zeitfenster des Arztes."];
         return;
     }
     
@@ -125,12 +156,14 @@
         [zeitfenster setAnfangMinunte:[NSNumber numberWithInt:[self.beginMin.text intValue]]];
         [zeitfenster setEndStunde:[NSNumber numberWithInt:[self.endHour.text intValue]]];
         [zeitfenster setEndMinute:[NSNumber numberWithInt:[self.endMin.text intValue]]];
+        [zeitfenster setDatum:self.storedDatum];
         [zeitfenster setArzt:self.gefundenerArzt];
     } else {
         self.selectedZeitfenster.anfangStunde = [NSNumber numberWithInt:[self.beginHour.text intValue]];
         self.selectedZeitfenster.anfangMinunte = [NSNumber numberWithInt:[self.beginMin.text intValue]];
         self.selectedZeitfenster.endStunde = [NSNumber numberWithInt:[self.endHour.text intValue]];
         self.selectedZeitfenster.endMinute = [NSNumber numberWithInt:[self.endMin.text intValue]];
+        self.selectedZeitfenster.datum = self.storedDatum;
         // Arztname braucht nicht überschrieben werden, weil das Feld readonly angezeigt wird.
     }
     
@@ -158,6 +191,22 @@
         }
     }
     return NO;
+}
+
+-(BOOL) pruefeZeitfensterSichUeberschneidenMitgespeicherteZeitfenster: (NSSet *) listeZeitfenster {
+    self.datenUeberschneidenSich = NO;
+    [listeZeitfenster enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        Zeitfenster *tmp = (Zeitfenster *)obj;
+
+        if ([[ApplicationHelper determineDateWithoutTime:tmp.datum] compare:[ApplicationHelper determineDateWithoutTime:self.storedDatum]] == NSOrderedSame) {
+            if(tmp.endStunde.intValue > self.beginHour.text.intValue ||
+               (tmp.endStunde.intValue == self.beginHour.text.intValue && tmp.endMinute.intValue > self.beginMin.text.intValue)) {
+                self.datenUeberschneidenSich = YES;
+                *stop = YES;
+            }
+        }
+    }];
+    return self.datenUeberschneidenSich;
 }
 
 @end
