@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *arztname;
 @property (strong, nonatomic) IBOutlet UILabel *beginTermin;
 @property (strong, nonatomic) IBOutlet UILabel *endTermin;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
 @property (nonatomic, strong) Zeitfenster *selectedZeitfenster;
 

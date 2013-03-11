@@ -65,7 +65,7 @@
 
 - (IBAction)datumUebernehmen:(id)sender {
     if([Validator checkIfDateInThePass:self.storedDate]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Das Datum darf nicht in der Vergangenheit liegen"];
+        [ApplicationHelper alertMeldungAnzeigen:@"Das Datum darf nicht in der Vergangenheit liegen" mitTitle:@"FEHLER"];
         return;
     }
 

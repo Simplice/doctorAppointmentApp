@@ -800,6 +800,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="beginTermin" destination="HYl-3L-B3p" id="bcC-HY-ZXV"/>
                         <outlet property="displayDatumAsText" destination="Iou-zu-0MJ" id="4Lp-5Q-AMs"/>
                         <outlet property="endTermin" destination="X2B-PF-hxW" id="cac-fs-MFS"/>
+                        <outlet property="saveButton" destination="Nsb-Jh-u8d" id="uVL-Gs-H3L"/>
                         <outlet property="vollerNamePatient" destination="dHg-U0-oXv" id="WkE-XE-DiR"/>
                     </connections>
                 </tableViewController>
@@ -1089,12 +1090,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="beginTermin" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="displayDatumAsText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="endTermin" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="vollerNamePatient" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="AddZeitfensterViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddZeitfensterViewController.h"/>
             <relationships>
+                <relationship kind="action" name="removeKeybord:"/>
                 <relationship kind="action" name="saveZeitfenster:"/>
                 <relationship kind="action" name="startMethodToCheckMaxLength:"/>
                 <relationship kind="action" name="stopMethodToCheckMaxLength:"/>

@@ -10,7 +10,7 @@
 
 @interface ApplicationHelper : NSObject
 
-+(void) fehlermeldungAnzeigen:(NSString*) message;
++(void) alertMeldungAnzeigen:(NSString*) message mitTitle: (NSString*) title;
 
 +(NSDate *) createDateComponentWithDay: (NSString*) day andWithMonth: (NSString*) month andWithYear: (NSString*) year;
 

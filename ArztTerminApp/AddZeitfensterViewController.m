@@ -106,46 +106,46 @@
     
     // Validate: check if empty textfield exist
     if(![Validator checkForNotEmptyTextfields:self.beginHour.text :self.endHour.text :self.beginMin.text :self.endMin.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Alle Eingabefelder sind pflicht."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Alle Eingabefelder sind pflicht." mitTitle:@"FEHLER"];
         return;
     }
     
     // Validate: check if negativ value exist
     if ([Validator checkForNegativeValue:self.beginHour.text :self.endHour.text :self.beginMin.text :self.endMin.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Kein negativer Wert darf eingegeben werden."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Kein negativer Wert darf eingegeben werden." mitTitle:@"FEHLER"];
         return;
     }
     
     // Validate: check if Minute is over MAX_MIN=60
     if([Validator checkIfMinuteOverMaxMinute:self.beginMin.text :self.endMin.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte korrigieren Sie die Minuteneingaben (Min. zw. 0 und 59)."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Bitte korrigieren Sie die Minuteneingaben (Min. zw. 0 und 59)." mitTitle:@"FEHLER"];
         return;
     }
     
     // Validate: check if Hour is over MAX_HOUR=24
     if([Validator checkIfHourOverMaxHour:self.beginHour.text :self.endHour.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte korrigieren Sie die Stundeneingaben (Min. zw. 0 und 23)."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Bitte korrigieren Sie die Stundeneingaben (Min. zw. 0 und 23)." mitTitle:@"FEHLER"];
         return;
     }
     
     // Validate: check if begin-time bigger than end time
     if(![Validator checkIfBeginHourBeforeEndHour:self.beginHour.text :self.endHour.text :self.beginMin.text :self.endMin.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Startuhrzeit muss nicht größer als Enduhrzeit sein."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Startuhrzeit muss nicht größer als Enduhrzeit sein." mitTitle:@"FEHLER"];
         return;
     }
     // Validate: check if termin-Datum is not empty
     if(self.storedDatum == nil) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte wählen Sie ein Datum ein."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Bitte wählen Sie ein Datum ein." mitTitle:@"FEHLER"];
         return;
     }
     //check and load Arzt if he exists
     if(![self ladenArztMitEingegebenemNamen:self.ganzerName.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Bitte überprüfen Sie die eingegebenen Daten."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Bitte überprüfen Sie die eingegebenen Daten." mitTitle:@"FEHLER"];
         return;
     }
     
     if ([self pruefeZeitfensterSichUeberschneidenMitgespeicherteZeitfenster:self.gefundenerArzt.zeitfenster]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Das eingegebene Zeitfenster überschneiden sich mit dem schon gespeicherten Zeitfenster des Arztes."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Das eingegebene Zeitfenster überschneiden sich mit dem schon gespeicherten Zeitfenster des Arztes." mitTitle:@"FEHLER"];
         return;
     }
     

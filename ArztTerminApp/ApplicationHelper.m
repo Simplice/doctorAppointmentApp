@@ -10,8 +10,11 @@
 
 @implementation ApplicationHelper
 
-+(void) fehlermeldungAnzeigen:(NSString*) message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FEHLER" message:message delegate:self cancelButtonTitle:@"Schliessen" otherButtonTitles: nil];
++(void) alertMeldungAnzeigen:(NSString*) message mitTitle: (NSString*) title{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Schliessen" otherButtonTitles: nil];
+    if ([title caseInsensitiveCompare:@"FEHLER"] == NSOrderedSame) {
+        [alert setBackgroundColor:[UIColor redColor]];
+    }
     [alert show];
 }
 

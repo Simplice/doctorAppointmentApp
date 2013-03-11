@@ -30,6 +30,7 @@
 @synthesize arztname = _arztname, beginTermin = _beginTermin, endTermin = _endTermin, currentTextField = _currentTextField;
 @synthesize selectedZeitfenster = _selectedZeitfenster, timer = _timer, vollerNamePatient = _vollerNamePatient;
 @synthesize gefundenerPatient = _gefundenerPatient, displayDatumAsText = _displayDatumAsText, datumDesTermins = _datumDesTermins;
+@synthesize saveButton = _saveButton;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -53,6 +54,8 @@
         Patient *patient = [[self.selectedZeitfenster.termin.patient allObjects] objectAtIndex:0]; // TODO look the better way to fix it, insteak of using index 0
         self.vollerNamePatient.text = [NSString stringWithFormat:@"%@, %@", patient.nachname, patient.vorname];
         [self.vollerNamePatient setEnabled:NO]; // Disable the inputfield
+        [self.saveButton setHidden:YES]; // Hidden the save button
+        [ApplicationHelper alertMeldungAnzeigen:@"Die dargestellte Maske nur zur Einsischt geöffnet." mitTitle:@"INFO"];
     }
 
 }
@@ -73,7 +76,7 @@
         
     //prüfe ob Patient existiert, sonst Fehlermeldung raus werfen
     if (![self ladenPatientMitEingegebenemNamen:self.vollerNamePatient.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden." mitTitle:@"FEHLER"];
         return;
     }
     
@@ -83,14 +86,16 @@
         termin.zeitfenster = [NSSet setWithObject:self.selectedZeitfenster];
         termin.patient = [NSSet setWithObject:self.gefundenerPatient];
         termin.datum = self.datumDesTermins;
-    }else { // MERGED
+    }
+    /*
+    else { // MERGED wird nicht mehr benötigt, weil der Termin nicht mehr gearbeitet werden darf
         // prüfe ob der Patientname geändert wurde, wenn ja dann nach dem neuen Patienten suche
         if (![self ladenPatientMitEingegebenemNamen:self.vollerNamePatient.text inManagedObjectContext:[JSMCoreDataHelper managedObjectContext]]) {
-            [ApplicationHelper fehlermeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden."];
+            [ApplicationHelper alertMeldungAnzeigen:@"Der eingegebene Patientname wurde nicht gefunden." mitTitle:@"FEHLER"];
             return;
         }
         [self.selectedZeitfenster.termin.patient setByAddingObject:self.gefundenerPatient];
-    }
+    } */
     
     [JSMCoreDataHelper saveManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     

@@ -53,7 +53,7 @@
 - (IBAction)saveNeuerArzt:(id)sender {
     //Validate: Eingabe Felder
     if(![Validator checkForNotEmptyPersonDateTextFields:self.anrede.text lastname:self.nachname.text firstname:self.vorname.text]) {
-        [ApplicationHelper fehlermeldungAnzeigen:@"Alle Eingabefelder sind pflicht."];
+        [ApplicationHelper alertMeldungAnzeigen:@"Alle Eingabefelder sind pflicht." mitTitle:@"FEHLER"];
         return;
     }
     // if the object arzt is nil, then a new arzt object will be created and persit
