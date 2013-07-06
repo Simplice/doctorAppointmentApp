@@ -99,9 +99,6 @@
     
     [JSMCoreDataHelper saveManagedObjectContext:[JSMCoreDataHelper managedObjectContext]];
     
-    
-    NSLog(@"size of the set object ist : %i", [self.selectedZeitfenster.termin.patient count]);
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

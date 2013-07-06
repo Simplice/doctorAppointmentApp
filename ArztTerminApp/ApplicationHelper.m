@@ -13,7 +13,11 @@
 +(void) alertMeldungAnzeigen:(NSString*) message mitTitle: (NSString*) title{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Schliessen" otherButtonTitles: nil];
     if ([title caseInsensitiveCompare:@"FEHLER"] == NSOrderedSame) {
-        [alert setBackgroundColor:[UIColor redColor]];
+
+        //Color Title, Message and Buttontest to redColor
+        UILabel *alertMessage =  [alert.subviews objectAtIndex:1];
+        alertMessage.textColor = [UIColor redColor];
+        //[alert setBackgroundColor:[UIColor redColor]];
     }
     [alert show];
 }
