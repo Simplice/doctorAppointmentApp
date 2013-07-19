@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // ajouter une image au backgroungColor
+    // ajouter une image au backgroungColor du app
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"320-fond.jpg"]];
 
     self.infoTextLabel.attributedText = [self makeAttributedStringFromString:self.infoTextLabel.text];
