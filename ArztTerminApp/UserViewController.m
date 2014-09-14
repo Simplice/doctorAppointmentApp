@@ -45,7 +45,7 @@
     UIColor *strokeColor=[UIColor blackColor];
     UIColor *backgroundColor=[UIColor colorWithRed:0 green:0 blue:0.5 alpha:0.5];
     UIColor *foregroundColor=[UIColor colorWithRed:0.4 green:0.6 blue:0.93 alpha:0.75];
-    UIFont *font=[UIFont fontWithName:@"Helvetica-Bold" size:24.0f];
+    UIFont *font=[UIFont fontWithName:@"Helvetica-Bold" size:18.0f];
     
     [attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
     [attString addAttribute:NSForegroundColorAttributeName value:foregroundColor range:NSMakeRange(0, stringLength)];
